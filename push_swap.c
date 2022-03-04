@@ -12,18 +12,16 @@
 
 #include "push_swap.h"
 
-void ft_print(int n)
+
+void printList( t_push *node)
 {
-    printf("%d\n", n);
+    while(node != NULL)
+    {
+        printf("%d ", node->content);
+        node = node->next;
+    }
 }
-void	ft_lstiter(t_push *lst, void (*f)(int))
-{
-	while (lst)
-	{
-		f(lst->content);
-		lst = lst->next;
-	}
-}
+
 int	ft_atoi(const char *str)
 {
 	int	res;
@@ -51,30 +49,24 @@ int	ft_atoi(const char *str)
 
 int main(int argc, char *argv[])
 {
-     t_push *n1 = NULL;
-      t_push *n2 = NULL;
-       t_push *n3 = NULL;
-        t_push *n4 = NULL;
-        t_push *n5 = NULL;
+    t_push *start = NULL;
 
-     n1 = ft_lstnew(10);
-    n2 = ft_lstnew(20);
-    n3 = ft_lstnew(30);
-    n4 = ft_lstnew(40);
-    n5 = ft_lstnew(50);
-   // int i = 0;
-   // while (argv[i])
-   // {
-    // n1[i] = *ft_lstnew(ft_atoi(argv[i]));
-     //ft_addback(&n1[i -1],&n1[i]);
-    // i++;
-   // }
- ft_addback(&n1,n2);
-    ft_addback(&n2,n3);
-    ft_addback(&n3,n4);
-    ft_addback(&n4,n5);
+	if (argc > 2)
+		ft_die("check");
+	argc = 0;
+	while (argv[argc])
+	{
+		ft_lstnew(&start, ft_atoi(argv[argc]));
+		argc++;
+	}
 
-     ft_lstiter(n1,ft_print);
+    printf("\n Linked list before calling swapNodes() ");
+    printList(start);
 
-     return 0;
+    ft_swapnodes(&start, 4, 2);
+
+    printf("\n Linked list after  calling swapNodes() ");
+    printList(start);
+
+    return 0;
 }

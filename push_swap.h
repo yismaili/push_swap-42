@@ -26,7 +26,11 @@ typedef struct s_push
 
 void    ft_addback(t_push **lst, t_push *newlst);
 void    ft_addfront(t_push **lst, t_push *newlst);
-t_push  *ft_lstnew(int content);
 t_push  *ft_lstlast(t_push *lst);
+void printList( t_push *node);
+void ft_lstnew(t_push ** head_ref, int new_data);
+void ft_swap( t_push **first, t_push **second );
+void ft_swapnodes(t_push **headr, int key1, int key2 );
+void	ft_die(char *str);
 
 #endif
