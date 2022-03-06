@@ -46,4 +46,21 @@ void ft_swapnodes(t_push **headr, int key1, int key2 )
 
     ft_swap( first, second );
     ft_swap( &( *first )->next, &( *second )->next );
-}
+	}
+
+	// void ft_sa(t_push **head)
+	// {
+	// 	t_push **first = head;
+	// 	first = &( *first)->next;
+
+	// 	t_push **second = head;
+
+	// 	 while ( *second && ( *second )->content) 
+	// 	 	 second = &( *second )->next;
+
+    // if ( *second == NULL ) return;
+
+    // ft_swap( first, second );
+    // ft_swap( &( *first )->next, &( *second )->next );
+
+	// }

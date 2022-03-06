@@ -22,6 +22,7 @@ typedef struct s_push
 {
     int           content;
     struct s_push   *next;
+    struct s_push   *prev;
 }   t_push;
 
 void    ft_addback(t_push **lst, t_push *newlst);
@@ -32,5 +33,8 @@ void ft_lstnew(t_push ** head_ref, int new_data);
 void ft_swap( t_push **first, t_push **second );
 void ft_swapnodes(t_push **headr, int key1, int key2 );
 void	ft_die(char *str);
+void ft_sa(t_push **head);
+void printList( t_push *node);
+int	ft_atoi(const char *str);
 
 #endif

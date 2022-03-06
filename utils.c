@@ -36,13 +36,13 @@ void	ft_addfront(t_push **lst, t_push *newlst)
 	}
 }
 
-void ft_lstnew(t_push ** head_ref, int new_data)
+void ft_lstnew(t_push ** head, int new_data)
 {
     t_push* new_node = (t_push*) malloc(sizeof(t_push));
 
     new_node->content  = new_data;
-    new_node->next = (*head_ref);
-    (*head_ref)    = new_node;
+    new_node->next = (*head);
+    (*head)    = new_node;
 }
 
 t_push	*ft_lstlast(t_push *lst)
