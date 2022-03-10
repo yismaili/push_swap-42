@@ -41,3 +41,31 @@ int ft_sb_move(t_data *ptr)
 	}
 	return (0);
 }
+
+int	ft_rra_move(t_data *ptr)
+{
+	t_stack *temp;
+
+	temp = ptr->stack_a;
+	while (temp->next->next)
+		temp = temp->next;
+	temp->next = NULL;
+	ptr->stack_end_a->next = ptr->stack_a;
+	ptr->stack_a = ptr->stack_end_a;	
+	ft_putstr_fd("rra\n", 1);
+	return (0);
+}
+
+int	ft_rrb_move(t_data *ptr)
+{
+	t_stack	*temp;
+
+	temp = ptr->stack_b;
+	while (temp->next->next)
+		temp = temp->next;
+	temp->next = NULL;
+	ptr->stack_end_b->next = ptr->stack_b;
+	ptr->stack_b = ptr->stack_end_b;
+	ft_putstr_fd("rrb\n", 1);
+	return (0);
+}
