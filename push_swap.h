@@ -17,24 +17,25 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include "libft/libft.h"
 
-typedef struct s_push
+typedef struct	s_stack
 {
-    int           content;
-    struct s_push   *next;
-    struct s_push   *prev;
-}   t_push;
+	int				content;
+	struct s_stack	*next;
+}	t_stack;
+typedef struct	s_data
+{
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+	t_stack	*stack_end_a;
+	t_stack	*stack_end_b;
+}	t_data;
 
-void    ft_addback(t_push **lst, t_push *newlst);
-void    ft_addfront(t_push **lst, t_push *newlst);
-t_push  *ft_lstlast(t_push *lst);
-void printList( t_push *node);
-void ft_lstnew(t_push ** head_ref, int new_data);
-void ft_swap( t_push **first, t_push **second );
-void ft_swapnodes(t_push **headr, int key1, int key2 );
+void	ft_create_stack(t_data *e, int argc, char **argv);
 void	ft_die(char *str);
-void ft_sa(t_push **head);
-void printList( t_push *node);
-int	ft_atoi(const char *str);
+int ft_sa_move(t_data *ptr);
+int ft_sb_move(t_data *ptr);
+void	ft_create_stackb(t_data *data, int argc, char **argv);
 
 #endif

@@ -5,69 +5,70 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yismaili <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/03 17:30:36 by yismaili          #+#    #+#             */
-/*   Updated: 2022/03/03 17:52:53 by yismaili         ###   ########.fr       */
+/*   Created: 2022/03/10 16:06:33 by yismaili          #+#    #+#             */
+/*   Updated: 2022/03/10 16:07:35 by yismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-void printList( t_push *node)
+void	ft_die(char *str)
 {
-    while(node != NULL)
-    {
-        printf("%d ", node->content);
-        node = node->next;
-    }
+	perror(str);
+	exit(1);
 }
 
-int	ft_atoi(const char *str)
+void	ft_create_stack(t_data *data, int argc, char **argv)
 {
-	int	res;
-	int	sgn;
-	int	i;
+	int		i;
+	t_stack	*nude;
+	i = 1;
 
-	res = 0;
-	sgn = 1;
-	i = 0;
-	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	data->stack_b = NULL;
+	nude = (t_stack*)malloc(sizeof(t_stack));
+	if (!nude)
+		ft_die("error stack\n");
+	data->stack_a = nude;
+	while (i < argc)
 	{
-		if (str[i] == '-')
-			sgn *= -1;
+		nude->content = ft_atoi(argv[i]);
+		nude->next = NULL;
+		if (i + 1 < argc)
+		{
+			nude->next = (t_stack*)malloc(sizeof(t_stack));
+			if (!nude)
+				ft_die("error stack\n");
+			nude = nude->next;
+		}
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		res = (res * 10) + (str[i] - '0');
-		i++;
-	}
-	return (res * sgn);
+	data->stack_end_a = nude;
 }
 
-// int main(int argc, char *argv[])
-// {
-//     t_push *start = NULL;
+int main(int argc, char **argv)
+{
+	t_data	data;
 
-// 	if (argc < 2)
-// 		ft_die("check");
-// 	argc = 1;
-// 	while (argv[argc])
-// 	{
-// 		ft_lstnew(&start, ft_atoi(argv[argc]));
-// 		argc++;
-// 	}
-
-//     printf("\n Linked list before calling swapNodes() \n ");
-//     printList(start);
-
-//     ft_swapnodes(&start, 4, 2);
-// // ft_sa(&start);
-
-//     printf("\n Linked list after  calling swapNodes() \n ");
-//     printList(start);
-
-//     return 0;
-// }
+	if (argc == 1)
+		return (0);
+	ft_create_stack(&data, argc, argv);
+	ft_create_stackb(&data, argc, argv);
+	t_stack *ptr, *bptr;
+	ft_sa_move(&data);
+	ft_sb_move(&data);
+	ptr = data.stack_a;
+	bptr = data.stack_b;
+	printf("------------- stack a ---------------\n");
+	while(ptr)
+	{
+		printf("%d\n",ptr->content);
+		ptr = ptr->next;
+	}
+	printf("--------- move to stack b -----------\n");
+	while(bptr)
+	{
+		printf("%d\n",bptr->content);
+		bptr = bptr->next;
+	}
+	return (0);
+}
