@@ -69,3 +69,51 @@ int	ft_rrb_move(t_data *ptr)
 	ft_putstr_fd("rrb\n", 1);
 	return (0);
 }
+
+int ft_pa_move(t_data *ptr)
+{
+	t_stack *temp;
+
+	temp = ptr->stack_a;
+	ptr->stack_a = ptr->stack_b;
+	ptr->stack_b->next = temp;
+	ptr->stack_b = ptr->stack_b->next->next;
+	ft_putstr_fd("pa\n", 1);
+	return (0);
+}
+
+int ft_pb_move(t_data *ptr)
+{
+	t_stack *temp;
+
+	temp = ptr->stack_b;
+	ptr->stack_b = ptr->stack_a;
+	ptr->stack_a->next = temp;
+	ptr->stack_a = ptr->stack_a->next->next;
+	ft_putstr_fd("pb\n", 1);
+	return (0);	
+}
+
+int	ft_ra_move(t_data *ptr)
+{
+	t_stack	*temp;
+
+	temp = ptr->stack_a;
+	ptr->stack_a = ptr->stack_a->next;
+	temp->next = NULL;
+	ptr->stack_end_a->next = temp;
+	ft_putstr_fd("ra\n", 1);
+	return (0);
+}
+
+int	ft_rb_move(t_data *ptr)
+{
+	t_stack	*temp;
+
+	temp = ptr->stack_b;
+	ptr->stack_b = ptr->stack_b->next;
+	temp->next = NULL;
+	ptr->stack_end_b->next = temp;
+	ft_putstr_fd("rb\n", 1);
+	return (0);
+}

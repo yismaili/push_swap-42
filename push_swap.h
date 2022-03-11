@@ -39,5 +39,8 @@ int ft_sb_move(t_data *ptr);
 void	ft_create_stackb(t_data *data, int argc, char **argv);
 int	ft_rra_move(t_data *ptr);
 int	ft_rrb_move(t_data *ptr);
-
+int ft_pa_move(t_data *ptr);
+int ft_pb_move(t_data *ptr);
+int	ft_ra_move(t_data *ptr);
+int	ft_rb_move(t_data *ptr);
 #endif

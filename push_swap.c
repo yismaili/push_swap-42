@@ -56,8 +56,11 @@ int main(int argc, char **argv)
 	t_stack *ptr, *bptr;
 	// ft_sa_move(&data);
 	// ft_sb_move(&data);
-	ft_rra_move(&data);
-	ft_rrb_move(&data);
+	// ft_rra_move(&data);
+	// ft_rrb_move(&data);
+	//ft_pb_move(&data);
+	ft_ra_move(&data);
+	ft_rb_move(&data);
 	ptr = data.stack_a;
 	bptr = data.stack_b;
 	printf("------------- stack a ---------------\n");
