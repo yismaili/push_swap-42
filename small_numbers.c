@@ -37,6 +37,7 @@ int ft_smoll_nbr(t_data *ptr)
     }
     else if (stk_a < stk_nxt_a && stk_a > stk_end_a && stk_nxt_a > stk_end_a)
         ft_rra_move(ptr);
-  
+    else if (stk_a > stk_end_a)
+        ft_rra_move(ptr);
     return (0);
 }
