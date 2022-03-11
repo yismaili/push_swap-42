@@ -43,4 +43,5 @@ int ft_pa_move(t_data *ptr);
 int ft_pb_move(t_data *ptr);
 int	ft_ra_move(t_data *ptr);
 int	ft_rb_move(t_data *ptr);
+int ft_smoll_nbr(t_data *ptr);
 #endif

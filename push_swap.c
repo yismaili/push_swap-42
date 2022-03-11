@@ -54,26 +54,27 @@ int main(int argc, char **argv)
 	ft_create_stack(&data, argc, argv);
 	ft_create_stackb(&data, argc, argv);
 	t_stack *ptr, *bptr;
-	// ft_sa_move(&data);
+	//ft_sa_move(&data);
 	// ft_sb_move(&data);
 	// ft_rra_move(&data);
 	// ft_rrb_move(&data);
 	//ft_pb_move(&data);
-	ft_ra_move(&data);
-	ft_rb_move(&data);
+	// ft_ra_move(&data);
+	// ft_rb_move(&data);
+	ft_smoll_nbr(&data);
 	ptr = data.stack_a;
-	bptr = data.stack_b;
+	// bptr = data.stack_b;
 	printf("------------- stack a ---------------\n");
 	while(ptr)
 	{
 		printf("%d\n",ptr->content);
 		ptr = ptr->next;
 	}
-	printf("--------- move to stack b -----------\n");
-	while(bptr)
-	{
-		printf("%d\n",bptr->content);
-		bptr = bptr->next;
-	}
+	// printf("--------- move to stack b -----------\n");
+	// while(bptr)
+	// {
+	// 	printf("%d\n",bptr->content);
+	// 	bptr = bptr->next;
+	// }
 	return (0);
 }
