@@ -30,6 +30,7 @@ typedef struct	s_data
 	t_stack	*stack_b;
 	t_stack	*stack_end_a;
 	t_stack	*stack_end_b;
+	int		len_stack_a;
 }	t_data;
 
 void	ft_create_stack(t_data *e, int argc, char **argv);
@@ -44,4 +45,8 @@ int ft_pb_move(t_data *ptr);
 int	ft_ra_move(t_data *ptr);
 int	ft_rb_move(t_data *ptr);
 int ft_smoll_nbr(t_data *ptr);
+void ft_sort_nbr(t_data *ptr);
+int ft_len_stack(t_data *ptr);
+void ft_push_tob(t_data *ptr);
+
 #endif

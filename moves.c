@@ -72,26 +72,36 @@ int	ft_rrb_move(t_data *ptr)
 
 int ft_pa_move(t_data *ptr)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
-	temp = ptr->stack_a;
-	ptr->stack_a = ptr->stack_b;
-	ptr->stack_b->next = temp;
-	ptr->stack_b = ptr->stack_b->next->next;
-	ft_putstr_fd("pa\n", 1);
+	if (ptr->stack_a != NULL)
+	{
+		temp = ptr->stack_b;
+		ptr->stack_b = ptr->stack_b->next;
+		temp->next = ptr->stack_a;
+		ptr->stack_a = temp;
+		ptr->stack_a->next == NULL ? ptr->stack_end_a = ptr->stack_a : 0;
+		ptr->stack_b == NULL ? ptr->stack_end_b = NULL : 0;
+		ft_putstr_fd("pa\n", 1);
+	}
 	return (0);
 }
 
 int ft_pb_move(t_data *ptr)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
-	temp = ptr->stack_b;
-	ptr->stack_b = ptr->stack_a;
-	ptr->stack_a->next = temp;
-	ptr->stack_a = ptr->stack_a->next->next;
-	ft_putstr_fd("pb\n", 1);
-	return (0);	
+	if (ptr->stack_a != NULL)
+	{
+		temp = ptr->stack_a;
+		ptr->stack_a = ptr->stack_a->next;
+		temp->next = ptr->stack_b;
+		ptr->stack_b = temp;
+		ptr->stack_b->next == NULL ? ptr->stack_end_b = ptr->stack_b : 0;
+		ptr->stack_a == NULL ? ptr->stack_end_a = NULL : 0;
+		ft_putstr_fd("pb\n", 1);
+	}
+	return (0);
 }
 
 int	ft_ra_move(t_data *ptr)
@@ -100,8 +110,9 @@ int	ft_ra_move(t_data *ptr)
 
 	temp = ptr->stack_a;
 	ptr->stack_a = ptr->stack_a->next;
-	temp->next = NULL;
 	ptr->stack_end_a->next = temp;
+	temp->next = NULL;
+	ptr->stack_end_a = ptr->stack_end_a->next;
 	ft_putstr_fd("ra\n", 1);
 	return (0);
 }
