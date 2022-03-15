@@ -37,8 +37,6 @@ int ft_smoll_nbr(t_data *ptr)
         ft_ra_move(ptr);
     else if (stk_a < stk_nxt_a && stk_a > stk_end_a && stk_nxt_a > stk_end_a)
         ft_rra_move(ptr);
-    else if (stk_a > stk_end_a)
-        ft_rra_move(ptr);
     return (0);
 }
 
@@ -67,9 +65,12 @@ void ft_push_tob(t_data *ptr)
 void ft_sort_nbr(t_data *ptr)
 {
     t_stack *temp = ptr->stack_a;
-     ft_smoll_nbr(ptr);
-     ft_pa_move(ptr);
-    //ptr->len_stack_a++;
+    ft_smoll_nbr(ptr);
+     if (ptr->stack_b != NULL)
+     {
+        ft_pa_move(ptr);
+        ptr->len_stack_a++;
+     }
    if (ptr->stack_a->content > ptr->stack_end_a->content)
    {
         ft_ra_move(ptr);
@@ -78,14 +79,9 @@ void ft_sort_nbr(t_data *ptr)
    {
        ft_sa_move(ptr);
    }
-    // while (ptr->stack_a)
-    // {
-
-    //     if (ptr->stack_a->content > ptr->stack_a->next->content)
-    //     {
-    //         ft_sa_move(ptr);
-    //     }
-    //     ptr->stack_a = ptr->stack_a->next;
-    //     printf("%d",i);
-    // } 
+    if (ptr->stack_b != NULL)
+    {
+        ft_pa_move(ptr); 
+        ptr->len_stack_a++;
+    }
 }
