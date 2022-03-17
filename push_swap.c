@@ -52,33 +52,17 @@ int main(int argc, char **argv)
 	if (argc == 1)
 		return (0);
 	ft_create_stack(&data, argc, argv);
-//	ft_create_stackb(&data, argc, argv);
-	data.len_stack_a = argc - 1;
 	t_stack *ptr, *bptr;
-	//ft_sa_move(&data);
-	// ft_sb_move(&data);
-	// ft_rra_move(&data);
-	// ft_rrb_move(&data);
-	//ft_pb_move(&data);
-	// ft_ra_move(&data);
-	// ft_rb_move(&data);
-	//if (argc > 3)
-		// int d = ft_len_stack(&data);
-		// printf("%d", d);
-	//else if (argc <= 3)
-
-		ft_push_tob(&data);
-		//ft_smoll_nbr(&data);
-		ft_sort_nbr(&data);
+	ft_sort(&data);
 	ptr = data.stack_a;
 	bptr = data.stack_b;
-	printf("------------- stack a ---------------\n");
+	printf("\n------------- stack a ---------------\n");
 	while(ptr)
 	{
 		printf("%d\n",ptr->content);
 		ptr = ptr->next;
 	}
-	printf("--------- move to stack b -----------\n");
+	printf("\n--------- move to stack b -----------\n");
 	while(bptr)
 	{
 		printf("%d\n",bptr->content);
