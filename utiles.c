@@ -59,11 +59,26 @@ int		check_sorted(t_stack *stack, int mode)
 	return (0);
 }
 
-// void ft_temp_stack(t_data *ptr)
-// {
-//     while (ptr->stack_a)
-//     {
-//         /* code */
-//     }
-    
-// }
+void ft_sort_temp(t_data *ptr)
+{
+	int i;
+	int  temp;
+	t_stack *unde;
+	unde = ptr->temp;
+	while (ptr->len_stack)
+	{
+		ptr->temp = unde;
+		while (ptr->temp->next != NULL)
+		{
+			if (ptr->temp->content > ptr->temp->next->content)
+			{
+				temp = ptr->temp->content;
+				ptr->temp->content = ptr->temp->next->content;
+				ptr->temp->next->content = temp;
+			}
+			ptr->temp = ptr->temp->next;
+		}
+		ptr->len_stack --;
+	}
+	ptr->temp = unde;
+}

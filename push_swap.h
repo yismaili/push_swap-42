@@ -51,7 +51,6 @@ void	ft_create_stack(t_data *e, int argc, char **argv);
 void	ft_die(char *str);
 int		ft_sa_move(t_data *ptr);
 int 	ft_sb_move(t_data *ptr);
-void	ft_create_stackb(t_data *data, int argc, char **argv);
 int		ft_rra_move(t_data *ptr);
 int		ft_rrb_move(t_data *ptr);
 int 	ft_pa_move(t_data *ptr);
@@ -65,4 +64,6 @@ int		check_sorted(t_stack *stack, int mode);
 int		ft_smoll_sort(t_data *ptr);
 int		ft_len_stack(t_data *ptr);
 void	ft_sort_nbr(t_data *ptr);
+void	ft_create_temp(t_data *data, int argc, char **argv);
+void 	ft_sort_temp(t_data *ptr);
 #endif
