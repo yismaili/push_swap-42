@@ -39,6 +39,7 @@ typedef struct	s_data
 	t_stack	*stack_b;
 	t_stack	*stack_end_a;
 	t_stack	*stack_end_b;
+	t_stack	*temp;
 	int		min;
 	int		max;
 	int		index_min;

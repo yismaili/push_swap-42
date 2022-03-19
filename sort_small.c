@@ -57,7 +57,7 @@ int ft_smoll_sort(t_data *ptr)
     {
         ft_smoll_two(ptr);
     }
-    else
+    else if (ptr->len_stack <= 3)
     {
         if (stk_a > stk_nxt_a && stk_a > stk_end_a && stk_nxt_a > stk_end_a)
         {
