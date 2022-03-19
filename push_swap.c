@@ -51,9 +51,10 @@ int main(int argc, char **argv)
 
 	if (argc == 1)
 		return (0);
+	data.len_stack = argc - 1;
 	ft_create_stack(&data, argc, argv);
 	t_stack *ptr, *bptr;
-	ft_sort(&data);
+	ft_smoll_sort(&data);
 	ptr = data.stack_a;
 	bptr = data.stack_b;
 	printf("\n------------- stack a ---------------\n");

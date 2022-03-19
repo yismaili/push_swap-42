@@ -19,7 +19,14 @@
 #include <stdlib.h>
 #include "libft/libft.h"
 # define MAX_INT 2147483647
-
+#define RED   "\x1B[31m"
+#define GRN   "\x1B[32m"
+#define YEL   "\x1B[33m"
+#define BLU   "\x1B[34m"
+#define MAG   "\x1B[35m"
+#define CYN   "\x1B[36m"
+#define WHT   "\x1B[37m"
+#define RESET "\x1B[0m"
 typedef struct	s_stack
 {
 	int				content;
@@ -36,6 +43,7 @@ typedef struct	s_data
 	int		max;
 	int		index_min;
 	int		min_getf;
+	int		len_stack;
 }	t_data;
 
 void	ft_create_stack(t_data *e, int argc, char **argv);
@@ -49,11 +57,11 @@ int 	ft_pa_move(t_data *ptr);
 int 	ft_pb_move(t_data *ptr);
 int		ft_ra_move(t_data *ptr);
 int		ft_rb_move(t_data *ptr);
-int 	ft_smoll_nbr(t_data *ptr);
-void 	ft_sort_nbr(t_data *ptr);
-int 	ft_len_stack(t_data *ptr);
-void 	ft_push_tob(t_data *ptr);
+int		ft_smoll_two(t_data *ptr);
 int 	ft_sort(t_data *ptr);
 int		ft_get_min(t_data *ptr);
 int		check_sorted(t_stack *stack, int mode);
+int		ft_smoll_sort(t_data *ptr);
+int		ft_len_stack(t_data *ptr);
+void	ft_sort_nbr(t_data *ptr);
 #endif
