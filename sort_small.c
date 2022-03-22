@@ -41,7 +41,6 @@ int ft_smoll_two(t_data *ptr)
 	while (ptr->stack_b != NULL)
 		ft_pa_move(ptr);
 	return (0);
-	return (0);
 }
 
 int ft_smoll_sort(t_data *ptr)
@@ -49,15 +48,17 @@ int ft_smoll_sort(t_data *ptr)
     int stk_a;
     int stk_nxt_a;
     int stk_end_a;
+    int len;
 
     stk_a = ptr->stack_a->content;
     stk_end_a = ptr->stack_end_a->content;
     stk_nxt_a = ptr->stack_a->next->content;
-    if (ptr->len_stack > 3)
+    len = ft_len_stack(ptr);
+    if (len > 3)
     {
         ft_smoll_two(ptr);
     }
-    else if (ptr->len_stack <= 3)
+    else if (len <= 3)
     {
         if (stk_a > stk_nxt_a && stk_a > stk_end_a && stk_nxt_a > stk_end_a)
         {

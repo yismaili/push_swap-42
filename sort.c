@@ -12,33 +12,42 @@
 
 #include "push_swap.h"
 
-int		ft_sort(t_data *ptr)
+int ft_comparet(t_data *ptr)
 {
-	if (ptr->stack_a->next == NULL)
-		return (0);
-	while (check_sorted(ptr->stack_a, 0) != 0 || ptr->stack_b == NULL)
+	int i;
+	int j;
+	int m;
+
+	t_stack *node = ptr->stack_a;
+ 	int len = ft_len_stack(ptr);
+	 i = 0;
+	 j = 0;
+
+	while (len)
 	{
-		ptr->min_getf = ft_get_min(ptr);
-		if (ptr->min == ptr->stack_a->next->content)
-			ft_ra_move(ptr);
-		 else
-		 {
-			while (ptr->index_min -1 > 0)
+		if (node->content > ptr->gitf_index)
+			i++;
+		if (node->content <= ptr->gitf_index)
+		{
+			while (i)
 			{
-				if (ptr->min_getf == -1)
-					ft_ra_move(ptr) ;
-				else
-					ft_rra_move(ptr);
-				ptr->index_min--;
-			 }
+				ft_ra_move(ptr);
+				i--;
+			}
+			ft_pb_move(ptr);
+			node = ptr->stack_a;
+			j++;
+			if (j >= 2)
+			{
+				if (ptr->stack_b->content <= ptr->gits_index)
+				{
+					ft_rb_move(ptr);
+				}
+			}
 		}
-		if (check_sorted(ptr->stack_a, 0) == 0 && ptr->stack_b == NULL)
-			break ;
-		if (ptr->stack_b != NULL && check_sorted(ptr->stack_a, 0) == 0 && check_sorted(ptr->stack_b, 1) == 0)
-			break ;
-		ft_pb_move(ptr);
+		else
+			node = node->next;
+		len--;
 	}
-	while (ptr->stack_b != NULL)
-		ft_pa_move(ptr);
 	return (0);
 }

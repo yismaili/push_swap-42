@@ -44,7 +44,10 @@ typedef struct	s_data
 	int		max;
 	int		index_min;
 	int		min_getf;
-	int		len_stack;
+	int		gitf_index;
+	int		len_temp;
+	int		gits_index;
+	int 	index_a;
 }	t_data;
 
 void	ft_create_stack(t_data *e, int argc, char **argv);
@@ -64,6 +67,13 @@ int		check_sorted(t_stack *stack, int mode);
 int		ft_smoll_sort(t_data *ptr);
 int		ft_len_stack(t_data *ptr);
 void	ft_sort_nbr(t_data *ptr);
-void	ft_create_temp(t_data *data, int argc, char **argv);
 void 	ft_sort_temp(t_data *ptr);
+int		len_temp(t_data *ptr);
+int 	get_frst_index(t_data *ptr);
+int		get_scnd_index(t_data *ptr);
+int		ft_comparet(t_data *ptr);
+void	ft_create_temp(t_data *data);
+int		ft_get_nmber(t_data *ptr);
+int		ft_len_stack(t_data *ptr);
+
 #endif
