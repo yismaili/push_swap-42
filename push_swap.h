@@ -48,6 +48,9 @@ typedef struct	s_data
 	int		len_temp;
 	int		gits_index;
 	int 	index_a;
+	int		gittree_index;
+	int		gitst_index;
+	int		gitsfor_index;
 }	t_data;
 
 void	ft_create_stack(t_data *e, int argc, char **argv);
@@ -75,5 +78,17 @@ int		ft_comparet(t_data *ptr);
 void	ft_create_temp(t_data *data);
 int		ft_get_nmber(t_data *ptr);
 int		ft_len_stack(t_data *ptr);
+void	ft_comparet_two(t_data *ptr);
+int		get_tree_index(t_data *ptr);
+int	get_scndtree_index(t_data *ptr);
+int ft_comparet_tow(t_data *ptr);
+int	get_scndfor_index(t_data *ptr);
+int ft_comparet_for(t_data *ptr);
 
 #endif
+// while (len > 3)
+// 	{
+// 		ft_pb_move(ptr);
+// 		if (ptr->stack_b->content >= ptr->gitsfor_index)
+// 				ft_rb_move(ptr);
+// 	}

@@ -59,11 +59,19 @@ int main(int argc, char **argv)
 	ft_sort_temp(&data);
 	get_frst_index(&data);
 	get_scnd_index(&data);
+	get_tree_index(&data);
+	get_scndtree_index(&data);
+	get_scndfor_index(&data);
 	// printf("first %d\n", data.gitf_index);
-	// printf("second %d",data.gits_index);
+	// printf("second %d\n",data.gits_index);
+	// printf("tree %d\n",data.gittree_index);
+	// printf("second tree %d\n",data.gitst_index);
+	// printf("for tree %d\n",data.gitsfor_index);
 
 	//ft_get_nmber(&data);
 	ft_comparet(&data); 
+	ft_comparet_tow(&data);
+	ft_comparet_for(&data);
 	ptr = data.stack_a;
 	bptr = data.stack_b;
 	printf("\n------------- stack a ---------------\n");
