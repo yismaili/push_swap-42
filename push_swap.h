@@ -88,7 +88,7 @@ int ft_comparet_tow(t_data *ptr);
 int	get_scndfor_index(t_data *ptr);
 int ft_comparet_for(t_data *ptr);
 int		ft_get_max(t_data *ptr);
-int		check_sorted_max(t_stack *stack, int mode);
+int		check(t_stack *stack, int mode);
 int ft_push_to_a(t_data *ptr);
 
 #endif

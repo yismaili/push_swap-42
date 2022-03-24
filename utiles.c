@@ -125,7 +125,7 @@ int	get_scnd_index(t_data *ptr)
 	len = ptr->len_temp / 3;
 	len /= 2;
 	t_stack *tmp = ptr->temp;
-	while (len -1)
+	while (len)
 	{
 		ptr->temp = ptr->temp->next;
 		len--;
@@ -142,7 +142,7 @@ int	get_tree_index(t_data *ptr)
 	len = len_temp(ptr);
 	len /= 1.5;
 	t_stack *tmp = ptr->temp;
-	while (len -1)
+	while (len)
 	{
 		ptr->temp = ptr->temp->next;
 		len --;
@@ -261,7 +261,7 @@ int		ft_get_max(t_data *ptr)
 		return (-1);
 }
 
-int		check_sorted_max(t_stack *stack, int mode)
+int		check(t_stack *stack, int mode)
 {
 	t_stack	*node;
 
@@ -270,8 +270,7 @@ int		check_sorted_max(t_stack *stack, int mode)
 	{
 		if (mode == 0 && node != NULL)
 			return (-1);
-		if (mode == 1 && node != NULL)
-			return (-1);
+
 		node = node->next;
 	}
 	return (0);
@@ -281,7 +280,7 @@ int ft_push_to_a(t_data *ptr)
 {
   if (ptr->stack_b->next == NULL)
 		return (0);
-	while (check_sorted_max(ptr->stack_b, 0) != 0)
+	while (check(ptr->stack_b, 0) != 0)
 	{
 		ptr->mx = ft_get_max(ptr);
 		if (ptr->max == ptr->stack_b->next->content)

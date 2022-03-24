@@ -16,31 +16,20 @@ int ft_comparet(t_data *ptr)
 {
 	int i;
 	int j;
-	int k;
-	int c;
 
 	t_stack *node = ptr->stack_a;
  	int len = ft_len_stack(ptr);
 	 i = 0;
 	 j = 0;
-	 c = len /2;
 	while (len)
 	{
 		if (node->content > ptr->gitf_index)
 			i++;
-		k = c + i;
 		if (node->content <= ptr->gitf_index)
 		{
 			while (i)
 			{
-				// if (k > c)
-				// {
-					ft_ra_move(ptr);
-				// }
-				// else if (k < c)
-				// {
-				// 	ft_rra_move(ptr);
-				// }
+				ft_ra_move(ptr);
 				i--;
 			}
 			ft_pb_move(ptr);
@@ -69,26 +58,15 @@ int ft_comparet_tow(t_data *ptr)
  	int len = ft_len_stack(ptr);
 	 i = 0;
 	 j = 0;
-	 int k;
-	int c;
-	 c = len /2;
 	while (len)
 	{
 		if (node->content > ptr->gittree_index)
 			i++;
-		k = c + i;
 		if (node->content <= ptr->gittree_index)
 		{
 			while (i)
 			{
-				// if (k > c)
-				// {
 					ft_ra_move(ptr);
-			//	}
-				// else if (k < c)
-				// {
-				// 	ft_rra_move(ptr);
-				// }
 				i--;
 			}
 			ft_pb_move(ptr);
