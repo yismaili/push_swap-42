@@ -20,7 +20,7 @@ int ft_smoll_two(t_data *ptr)
 	{
 		ptr->min_getf = ft_get_min(ptr);
 		if (ptr->min == ptr->stack_a->next->content)
-			ft_ra_move(ptr);
+			ft_sa_move(ptr);
 		 else
 		 {
 			while (ptr->index_min -1 > 0)

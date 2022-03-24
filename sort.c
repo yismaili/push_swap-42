@@ -16,22 +16,31 @@ int ft_comparet(t_data *ptr)
 {
 	int i;
 	int j;
-	int m;
+	int k;
+	int c;
 
 	t_stack *node = ptr->stack_a;
  	int len = ft_len_stack(ptr);
 	 i = 0;
 	 j = 0;
-
+	 c = len /2;
 	while (len)
 	{
 		if (node->content > ptr->gitf_index)
 			i++;
+		k = c + i;
 		if (node->content <= ptr->gitf_index)
 		{
 			while (i)
 			{
-				ft_ra_move(ptr);
+				// if (k > c)
+				// {
+					ft_ra_move(ptr);
+				// }
+				// else if (k < c)
+				// {
+				// 	ft_rra_move(ptr);
+				// }
 				i--;
 			}
 			ft_pb_move(ptr);
@@ -39,7 +48,7 @@ int ft_comparet(t_data *ptr)
 			j++;
 			if (j >= 2)
 			{
-				if (ptr->stack_b->content <= ptr->gits_index)
+				if (ptr->stack_b->content > ptr->gits_index)
 				{
 					ft_rb_move(ptr);
 				}
@@ -55,22 +64,31 @@ int ft_comparet_tow(t_data *ptr)
 {
 	int i;
 	int j;
-	int m;
 
 	t_stack *node = ptr->stack_a;
  	int len = ft_len_stack(ptr);
 	 i = 0;
 	 j = 0;
-
+	 int k;
+	int c;
+	 c = len /2;
 	while (len)
 	{
 		if (node->content > ptr->gittree_index)
 			i++;
+		k = c + i;
 		if (node->content <= ptr->gittree_index)
 		{
 			while (i)
 			{
-				ft_ra_move(ptr);
+				// if (k > c)
+				// {
+					ft_ra_move(ptr);
+			//	}
+				// else if (k < c)
+				// {
+				// 	ft_rra_move(ptr);
+				// }
 				i--;
 			}
 			ft_pb_move(ptr);
@@ -78,7 +96,7 @@ int ft_comparet_tow(t_data *ptr)
 			j++;
 			if (j >= 2)
 			{
-				if (ptr->stack_b->content >= ptr->gits_index)
+				if (ptr->stack_b->content < ptr->gits_index)
 					ft_rb_move(ptr);
 			}
 		}
@@ -93,6 +111,7 @@ int ft_comparet_for(t_data *ptr)
 {
 	int i;
 	int j;
+	
 
 	t_stack *node = ptr->stack_a;
  	int len = ft_len_stack(ptr);
@@ -101,9 +120,9 @@ int ft_comparet_for(t_data *ptr)
 
 	while (len)
 	{
-		if (node->content > 99)
+		if (node->content > ptr->len_temp -1)
 			i++;
-		if (node->content <= 99)
+		if (node->content <= ptr->len_temp -1)
 		{
 			while (i)
 			{
@@ -115,7 +134,7 @@ int ft_comparet_for(t_data *ptr)
 			j++;
 			if (j >= 2)
 			{
-				if (ptr->stack_b->content >= ptr->gitsfor_index)
+				if (ptr->stack_b->content < 80)
 					ft_rb_move(ptr);
 			}
 		}
@@ -124,4 +143,6 @@ int ft_comparet_for(t_data *ptr)
 		len--;
 	}
 	return (0);
+
 }
+

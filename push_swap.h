@@ -19,6 +19,7 @@
 #include <stdlib.h>
 #include "libft/libft.h"
 # define MAX_INT 2147483647
+# define MIN_INT -2147483647
 #define RED   "\x1B[31m"
 #define GRN   "\x1B[32m"
 #define YEL   "\x1B[33m"
@@ -43,6 +44,7 @@ typedef struct	s_data
 	int		min;
 	int		max;
 	int		index_min;
+	int		index_max;
 	int		min_getf;
 	int		gitf_index;
 	int		len_temp;
@@ -51,6 +53,7 @@ typedef struct	s_data
 	int		gittree_index;
 	int		gitst_index;
 	int		gitsfor_index;
+	int		mx;
 }	t_data;
 
 void	ft_create_stack(t_data *e, int argc, char **argv);
@@ -84,11 +87,8 @@ int	get_scndtree_index(t_data *ptr);
 int ft_comparet_tow(t_data *ptr);
 int	get_scndfor_index(t_data *ptr);
 int ft_comparet_for(t_data *ptr);
+int		ft_get_max(t_data *ptr);
+int		check_sorted_max(t_stack *stack, int mode);
+int ft_push_to_a(t_data *ptr);
 
 #endif
-// while (len > 3)
-// 	{
-// 		ft_pb_move(ptr);
-// 		if (ptr->stack_b->content >= ptr->gitsfor_index)
-// 				ft_rb_move(ptr);
-// 	}

@@ -53,7 +53,7 @@ int main(int argc, char **argv)
 		return (0);
 	ft_create_stack(&data, argc, argv);
 	t_stack *ptr, *bptr;
-//	ft_smoll_sort(&data);
+	//ft_smoll_sort(&data);
 	
 	ft_create_temp(&data);
 	ft_sort_temp(&data);
@@ -61,30 +61,30 @@ int main(int argc, char **argv)
 	get_scnd_index(&data);
 	get_tree_index(&data);
 	get_scndtree_index(&data);
-	get_scndfor_index(&data);
+	//get_scndfor_index(&data);
 	// printf("first %d\n", data.gitf_index);
 	// printf("second %d\n",data.gits_index);
 	// printf("tree %d\n",data.gittree_index);
 	// printf("second tree %d\n",data.gitst_index);
-	// printf("for tree %d\n",data.gitsfor_index);
+	// //printf("for tree %d\n",data.gitsfor_index);
 
-	//ft_get_nmber(&data);
 	ft_comparet(&data); 
 	ft_comparet_tow(&data);
 	ft_comparet_for(&data);
+	ft_push_to_a(&data);
 	ptr = data.stack_a;
 	bptr = data.stack_b;
-	printf("\n------------- stack a ---------------\n");
-	while(ptr)
-	{
-		printf("%d\n",ptr->content);
-		ptr = ptr->next;
-	}
-	printf("\n--------- move to stack b -----------\n");
-	while(bptr)
-	{
-		printf("%d\n",bptr->content);
-		bptr = bptr->next;
-	}
+	// printf("\n------------- stack a ---------------\n");
+	// while(ptr)
+	// {
+	// 	printf("%d\n",ptr->content);
+	// 	ptr = ptr->next;
+	// }
+	// printf("\n--------- move to stack b -----------\n");
+	// while(bptr)
+	// {
+	// 	printf("%d\n",bptr->content);
+	// 	bptr = bptr->next;
+	// }
 	return (0);
 }
