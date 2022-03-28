@@ -43,16 +43,6 @@ typedef struct	s_data
 	int		gits_index;
 	int		mx;
 	int		len_temp;
-	// int		git1;
-	// int 	git_s_1;
-	// int		git2;
-	// int 	git_s_2;
-	// int		git3;
-	// int 	git_s_3;
-	// int		git4;
-	// int 	git_s_4;
-	// int		git5;
-	// int 	git_s_5;
 }	t_data;
 
 void	ft_create_stack(t_data *e, int argc, char **argv);
@@ -79,21 +69,4 @@ void	ft_create_temp(t_data *data);
 int		ft_get_max(t_data *ptr);
 int		check(t_stack *stack, int mode);
 int		ft_push_to_a(t_data *ptr);
-/******************/
-// int get_1(t_data *ptr);
-// int	get_s_1(t_data *ptr);
-// int get_2(t_data *ptr);
-// int	get_s_2(t_data *ptr);
-// int get_3(t_data *ptr);
-// int	get_s_3(t_data *ptr);
-// int get_4(t_data *ptr);
-// int	get_s_4(t_data *ptr);
-// int get_5(t_data *ptr);
-// int	get_s_5(t_data *ptr);
-// int ft_comparet_1(t_data *ptr);
-// int ft_comparet_2(t_data *ptr);
-// int ft_comparet_3(t_data *ptr);
-// int ft_comparet_4(t_data *ptr);
-// int ft_comparet_5(t_data *ptr);
-
 #endif

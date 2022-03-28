@@ -18,33 +18,6 @@ void	ft_die(char *str)
 	exit(1);
 }
 
-void	ft_create_stack(t_data *data, int argc, char **argv)
-{
-	int		i;
-	t_stack	*nude;
-	i = 1;
-
-	data->stack_b = NULL;
-	nude = (t_stack*)malloc(sizeof(t_stack));
-	if (!nude)
-		ft_die("error stack\n");
-	data->stack_a = nude;
-	while (i < argc)
-	{
-		nude->content = ft_atoi(argv[i]);
-		nude->next = NULL;
-		if (i + 1 < argc)
-		{
-			nude->next = (t_stack*)malloc(sizeof(t_stack));
-			if (!nude)
-				ft_die("error stack\n");
-			nude = nude->next;
-		}
-		i++;
-	}
-	data->stack_end_a = nude;
-}
-
 int main(int argc, char **argv)
 {
 	t_data	data;
@@ -56,36 +29,13 @@ int main(int argc, char **argv)
 	//ft_smoll_sort(&data);
 	
 	ft_create_temp(&data);
-	ft_sort_temp(&data);
-	// get_frst_index(&data);
-	// get_scnd_index(&data);
-	//free(data.temp);
-	// printf("first %d\n", data.gitf_index);
-	// printf("second %d\n",data.gits_index);
-	// printf("tree %d\n",data.gittree_index);
-	// printf("for %d\n",data.gitfor_index);
-	// printf("for secnd %d\n",data.gitsfor_index);
-while (data.stack_a->next != NULL)
-{
+	ft_sort_temp(&data); 
+    while (data.stack_a->next != NULL)
+    {
 	ft_comparet(&data);
  	ft_create_temp(&data);
  	ft_sort_temp(&data);
- }
-// get_1(&data);
-// get_2(&data);
-// get_3(&data);
-// get_4(&data);
-// get_5(&data);
-// get_s_1(&data);
-// get_s_2(&data);
-// get_s_3(&data);
-// get_s_4(&data);
-// get_s_5(&data);
-// ft_comparet_1(&data);
-// ft_comparet_2(&data);
-// ft_comparet_3(&data);
-// ft_comparet_4(&data);
-// ft_comparet_5(&data);
+    }
 	
 	ft_push_to_a(&data);
 	ptr = data.stack_a;
