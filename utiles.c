@@ -87,10 +87,11 @@ void ft_sort_temp(t_data *ptr)
 }
 int len_temp(t_data *ptr)
 {
-	int len;
+	int		len;
+	t_stack *tmp;
 
 	len = 0;
-	t_stack *tmp = ptr->temp;
+	tmp = ptr->temp;
 	while (ptr->temp != NULL)
 	{
 		ptr->temp = ptr->temp->next;
@@ -101,64 +102,14 @@ int len_temp(t_data *ptr)
 	return (len);
 }
 
-int get_frst_index(t_data *ptr)
-{
-	int len;
-
-	len = len_temp(ptr);
-	len /= 5;
-	t_stack *tmp = ptr->temp;
-	while (len)
-	{
-		ptr->temp = ptr->temp->next;
-		len --;
-	}
-	ptr->gitf_index = ptr->temp->content;
-	ptr->temp = tmp;
-	//free(ptr->temp);
-	return (0);
-}
-
-int	get_scnd_index(t_data *ptr)
-{
-	int len;
-
-	len = len_temp(ptr) / 5;
-	len /= 2;
-	t_stack *tmp = ptr->temp;
-	while (len)
-	{
-		ptr->temp = ptr->temp->next;
-		len--;
-	}
-	ptr->gits_index = ptr->temp->content;
-	//ptr->temp = tmp; 
-	//free(ptr->temp);
-	return (0);
-}
-
-int ft_len_stack(t_data *ptr)
-{
-	int len;
-
-	len = 0;
-	t_stack *node;
-	node = ptr->stack_a;
-	while (node != NULL)
-	{
-		node = node->next;
-		len++;
-	}
-	return (len);
-}
-
 void	ft_create_temp(t_data *data)
 {
 	int		i;
 	t_stack	*nude;
 	t_stack *tmp;
-	i = 1;
 
+
+	i = 1;
 	tmp = data->stack_a;
 	nude = (t_stack*)malloc(sizeof(t_stack));
 	if (!nude)
@@ -220,7 +171,6 @@ int		check(t_stack *stack, int mode)
 	{
 		if (mode == 0 && node != NULL)
 			return (-1);
-
 		node = node->next;
 	}
 	return (0);

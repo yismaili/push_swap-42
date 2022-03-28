@@ -12,17 +12,69 @@
 
 #include "push_swap.h"
 
+int ft_len_stack(t_data *ptr)
+{
+	int		len;
+	t_stack	*node;
+
+	len = 0;
+	node = ptr->stack_a;
+	while (node != NULL)
+	{
+		node = node->next;
+		len++;
+	}
+	return (len);
+}
+
+int get_frst_index(t_data *ptr)
+{
+	int		len;
+	t_stack	*tmp;
+
+	len = len_temp(ptr);
+	len /= 3;
+	tmp = ptr->temp;
+	while (len)
+	{
+		ptr->temp = ptr->temp->next;
+		len --;
+	}
+	ptr->gitf_index = ptr->temp->content;
+	ptr->temp = tmp;
+	return (0);
+}
+
+int	get_scnd_index(t_data *ptr)
+{
+	int		len;
+	t_stack	*tmp;
+
+	len = len_temp(ptr) /3;
+	len /= 2;
+	tmp = ptr->temp;
+	while (len)
+	{
+		ptr->temp = ptr->temp->next;
+		len--;
+	}
+	ptr->gits_index = ptr->temp->content;
+	return (0);
+}
+
 int ft_comparet(t_data *ptr)
 {
-	int i;
-	int j;
+	int		i;
+	int		j;
+	int		len;
+	t_stack *node;
 
-	get_frst_index(ptr);
-	get_scnd_index(ptr);
-	t_stack *node = ptr->stack_a;
- 	int len = ft_len_stack(ptr);
 	 i = 0;
 	 j = 0;
+	get_frst_index(ptr);
+	get_scnd_index(ptr);
+	node = ptr->stack_a;
+ 	len = ft_len_stack(ptr);
 	while (len)
 	{
 		if (node->content > ptr->gitf_index)
@@ -39,10 +91,8 @@ int ft_comparet(t_data *ptr)
 			j++;
 			if (j >= 2)
 			{
-				if (ptr->stack_b->content > ptr->gits_index)
-				{
-						ft_rb_move(ptr);
-				}
+				if (ptr->stack_b->content < ptr->gits_index)
+					ft_rb_move(ptr);
 			}
 		}
 		else

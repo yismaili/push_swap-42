@@ -71,6 +71,21 @@ while (data.stack_a->next != NULL)
  	ft_create_temp(&data);
  	ft_sort_temp(&data);
  }
+// get_1(&data);
+// get_2(&data);
+// get_3(&data);
+// get_4(&data);
+// get_5(&data);
+// get_s_1(&data);
+// get_s_2(&data);
+// get_s_3(&data);
+// get_s_4(&data);
+// get_s_5(&data);
+// ft_comparet_1(&data);
+// ft_comparet_2(&data);
+// ft_comparet_3(&data);
+// ft_comparet_4(&data);
+// ft_comparet_5(&data);
 	
 	ft_push_to_a(&data);
 	ptr = data.stack_a;
