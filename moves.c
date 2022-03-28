@@ -36,7 +36,7 @@ int ft_sb_move(t_data *ptr)
 		temp = ptr->stack_b->content;
 		ptr->stack_b->content = ptr->stack_b->next->content;
 		ptr->stack_b->next->content = temp;
-		ft_putstr_fd("sb\n", 1);
+			ft_putstr_fd("sb\n", 1);
 		return (1);
 	}
 	return (0);
@@ -151,3 +151,10 @@ int	ft_rb_move(t_data *ptr)
 	}
 	return (0);
 }
+// int ft_rr_move(t_data *ptr)
+// {
+// 	ft_ra_move(ptr, 's');
+// 	ft_rb_move(ptr, 's');
+// 	ft_putstr_fd("rr\n", 1);
+// 	return (0);
+// }

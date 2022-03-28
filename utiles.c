@@ -106,7 +106,7 @@ int get_frst_index(t_data *ptr)
 	int len;
 
 	len = len_temp(ptr);
-	len /= 3;
+	len /= 5;
 	t_stack *tmp = ptr->temp;
 	while (len)
 	{
@@ -115,6 +115,7 @@ int get_frst_index(t_data *ptr)
 	}
 	ptr->gitf_index = ptr->temp->content;
 	ptr->temp = tmp;
+	//free(ptr->temp);
 	return (0);
 }
 
@@ -122,7 +123,7 @@ int	get_scnd_index(t_data *ptr)
 {
 	int len;
 
-	len = ptr->len_temp / 3;
+	len = len_temp(ptr) / 5;
 	len /= 2;
 	t_stack *tmp = ptr->temp;
 	while (len)
@@ -131,60 +132,10 @@ int	get_scnd_index(t_data *ptr)
 		len--;
 	}
 	ptr->gits_index = ptr->temp->content;
-	ptr->temp = tmp; 
+	//ptr->temp = tmp; 
+	//free(ptr->temp);
 	return (0);
 }
-
-int	get_tree_index(t_data *ptr)
-{
-	int len;
-
-	len = len_temp(ptr);
-	len /= 1.5;
-	t_stack *tmp = ptr->temp;
-	while (len)
-	{
-		ptr->temp = ptr->temp->next;
-		len --;
-	}
-	ptr->gittree_index = ptr->temp->content;
-	ptr->temp = tmp;
-	return (0);
-}
-int	get_scndtree_index(t_data *ptr)
-{
-	int len;
-
-	len = ptr->len_temp / 1.5;
-	len /= 2;
-	t_stack *tmp = ptr->temp;
-	while (len)
-	{
-		ptr->temp = ptr->temp->next;
-		len--;
-	}
-	ptr->gitst_index = ptr->temp->content;
-	ptr->temp = tmp; 
-	return (0);
-}
-
-int	get_scndfor_index(t_data *ptr)
-{
-	int len;
-
-	len = ptr->len_temp -1;
-	len /= 2;
-	t_stack *tmp = ptr->temp;
-	while (len)
-	{
-		ptr->temp = ptr->temp->next;
-		len--;
-	}
-	ptr->gitsfor_index = ptr->temp->content;
-	ptr->temp = tmp; 
-	return (0);
-}
-
 
 int ft_len_stack(t_data *ptr)
 {
@@ -209,7 +160,6 @@ void	ft_create_temp(t_data *data)
 	i = 1;
 
 	tmp = data->stack_a;
-	data->stack_b = NULL;
 	nude = (t_stack*)malloc(sizeof(t_stack));
 	if (!nude)
 		ft_die("error stack\n");

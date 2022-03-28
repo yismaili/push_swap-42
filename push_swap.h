@@ -20,14 +20,7 @@
 #include "libft/libft.h"
 # define MAX_INT 2147483647
 # define MIN_INT -2147483647
-#define RED   "\x1B[31m"
-#define GRN   "\x1B[32m"
-#define YEL   "\x1B[33m"
-#define BLU   "\x1B[34m"
-#define MAG   "\x1B[35m"
-#define CYN   "\x1B[36m"
-#define WHT   "\x1B[37m"
-#define RESET "\x1B[0m"
+
 typedef struct	s_stack
 {
 	int				content;
@@ -52,6 +45,7 @@ typedef struct	s_data
 	int 	index_a;
 	int		gittree_index;
 	int		gitst_index;
+	int		gitfor_index;
 	int		gitsfor_index;
 	int		mx;
 }	t_data;
@@ -90,5 +84,6 @@ int ft_comparet_for(t_data *ptr);
 int		ft_get_max(t_data *ptr);
 int		check(t_stack *stack, int mode);
 int ft_push_to_a(t_data *ptr);
+int	get_for_index(t_data *ptr);
 
 #endif
