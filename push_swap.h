@@ -69,4 +69,10 @@ void	ft_create_temp(t_data *data);
 int		ft_get_max(t_data *ptr);
 int		check(t_stack *stack, int mode);
 int		ft_push_to_a(t_data *ptr);
+void	ft_rr_move(t_data *ptr);
+int		ft_sra_move(t_data *ptr);
+int		ft_srb_move(t_data *ptr);
+int 	get_frst_big_index(t_data *ptr);
+int		get_scnd_big_index(t_data *ptr);
+int		ft_comparet_big(t_data *ptr);
 #endif

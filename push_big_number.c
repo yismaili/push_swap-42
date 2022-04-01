@@ -1,39 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_to_b.c                                        :+:      :+:    :+:   */
+/*   push_big_number.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yismaili <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/16 21:49:52 by yismaili          #+#    #+#             */
-/*   Updated: 2022/03/16 21:50:51 by yismaili         ###   ########.fr       */
+/*   Created: 2022/03/20 13:09:26 by yismaili          #+#    #+#             */
+/*   Updated: 2022/03/20 13:09:40 by yismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int ft_len_stack(t_data *ptr)
-{
-	int		len;
-	t_stack	*node;
-
-	len = 0;
-	node = ptr->stack_a;
-	while (node != NULL)
-	{
-		node = node->next;
-		len++;
-	}
-	return (len);
-}
-
-int get_frst_index(t_data *ptr)
+int get_frst_big_index(t_data *ptr)
 {
 	int		len;
 	t_stack	*tmp;
 
 	len = len_temp(ptr);
-	len /= 3;
+	len /= 5;
 	tmp = ptr->temp;
 	while (len)
 	{
@@ -45,12 +30,12 @@ int get_frst_index(t_data *ptr)
 	return (0);
 }
 
-int	get_scnd_index(t_data *ptr)
+int	get_scnd_big_index(t_data *ptr)
 {
 	int		len;
 	t_stack	*tmp;
 
-	len = len_temp(ptr) /3;
+	len = len_temp(ptr) /5;
 	len /= 2;
 	tmp = ptr->temp;
 	while (len)
@@ -62,7 +47,7 @@ int	get_scnd_index(t_data *ptr)
 	return (0);
 }
 
-int ft_comparet(t_data *ptr)
+int ft_comparet_big(t_data *ptr)
 {
 	int		i;
 	int		len;
