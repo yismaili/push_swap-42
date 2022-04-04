@@ -16,25 +16,37 @@ SRCS=push_swap.c\
 OBJS=$(SRCS:.c=.o)
 INCL= push_swap.h
 
-GREY=$'\x1b[30m
-GREEN=$'\x1b[32m
-YELLOW=$'\x1b[33m
-BLUE=$'\x1b[34m
-PURPLE=$'\x1b[35m
-CYAN=$'\x1b[36m
-WHITE=$'\x1b[37m
+BGreen=\033[1;32m
+BYellow=\033[1;33m
+BBlue=\033[1;34m
+BPurple=\033[1;38;5;205m
+BRed=\033[1;31m
 
 all:$(NAME)
+
+
+		@echo "$(BRed)"
+		@echo "██████╗░██╗░░░██╗░██████╗██╗░░██╗  ░██████╗░██╗░░░░░░░██╗░█████╗░██████╗░"
+		@echo "██╔══██╗██║░░░██║██╔════╝██║░░██║  ██╔════╝░██║░░██╗░░██║██╔══██╗██╔══██╗"
+		@echo "██████╔╝██║░░░██║╚█████╗░███████║  ╚█████╗░░╚██╗████╗██╔╝███████║██████╔╝"
+		@echo "██╔═══╝░██║░░░██║░╚═══██╗██╔══██║  ░╚═══██╗░░████╔═████║░██╔══██║██╔═══╝░"
+		@echo "██║░░░░░╚██████╔╝██████╔╝██║░░██║  ██████╔╝░░╚██╔╝░╚██╔╝░██║░░██║██║░░░░░ BY younes ismaili"
+		@echo "╚═╝░░░░░░╚═════╝░╚═════╝░╚═╝░░╚═╝  ╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝░░╚═╝╚═╝░░░░░"
+
 %.o: %.c $(INCL)
+	@echo "$(BPurple) Compile $(BYellow) $^ $(BGreen)to $@"
 	$(CC) $(FLAGS) $< $(INCL) -c
 
 $(NAME):$(OBJS)
+	@echo "$(BYellow) Make $(BGreen) $@"
 	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 
 clean:
+	@echo "$(BBlue) Clean"
 	rm -rf *.o
 
 fclean:clean
+	@echo "$(BGreen) Fclean"
 	rm -rf *.a
 	rm -rf push_swap
 

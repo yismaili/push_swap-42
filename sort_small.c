@@ -67,15 +67,15 @@ int ft_smoll_two(t_data *ptr)
 	{
 		ptr->min_getf = ft_get_min(ptr);
 		if (ptr->min == ptr->stack_a->next->content)
-			ft_sa_move(ptr);
+			ft_sa_move(ptr, 'a');
 		 else
 		 {
 			while (ptr->index_min -1 > 0)
 			{
 				if (ptr->min_getf == -1)
-					ft_ra_move(ptr) ;
+					ft_ra_move(ptr, 'a') ;
 				else
-					ft_rra_move(ptr);
+					ft_rra_move(ptr, 'a');
 				ptr->index_min--;
 			 }
 		}
@@ -83,10 +83,10 @@ int ft_smoll_two(t_data *ptr)
 			break ;
 		if (ptr->stack_b != NULL && check_sorted(ptr->stack_a, 0) == 0 && check_sorted(ptr->stack_b, 1) == 0)
 			break ;
-		ft_pb_move(ptr);
+		ft_pb_move(ptr, 'b');
 	}
 	while (ptr->stack_b != NULL)
-		ft_pa_move(ptr);
+		ft_pa_move(ptr, 'a');
 	return (0);
 }
 
@@ -109,24 +109,22 @@ int ft_smoll_sort(t_data *ptr)
     {
         if (stk_a > stk_nxt_a && stk_a > stk_end_a && stk_nxt_a > stk_end_a)
         {
-            ft_sa_move(ptr);
-            ft_rra_move(ptr);
+            ft_sa_move(ptr, 'a');
+            ft_rra_move(ptr, 'a');
         }
         else if (stk_a < stk_nxt_a && stk_a < stk_end_a && stk_nxt_a > stk_end_a)
         {
-            ft_sa_move(ptr);
-            ft_ra_move(ptr);
+            ft_sa_move(ptr, 'a');
+            ft_ra_move(ptr, 'a');
         }
         else if (stk_a > stk_nxt_a && stk_a < stk_end_a && stk_nxt_a < stk_end_a)
-            ft_sa_move(ptr);
+            ft_sa_move(ptr, 'a');
         else if (stk_a > stk_nxt_a && stk_a > stk_end_a && stk_nxt_a < stk_end_a)
-            ft_ra_move(ptr);
+            ft_ra_move(ptr, 'a');
         else if (stk_a < stk_nxt_a && stk_a > stk_end_a && stk_nxt_a > stk_end_a)
-            ft_rra_move(ptr);
+            ft_rra_move(ptr, 'a');
 		else if (stk_a > stk_nxt_a)
-			ft_sa_move(ptr);
-		// if (ft_len_stack(ptr) == 1)
-		// 	return (0);
+			ft_sa_move(ptr,'a');
     }
     return (0);
 }

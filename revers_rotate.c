@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	ft_rra_move(t_data *ptr)
+int	ft_rra_move(t_data *ptr, char c)
 {
 	t_stack	*temp;
 	t_stack	*temp_end;
@@ -27,13 +27,14 @@ int	ft_rra_move(t_data *ptr)
 		ptr->stack_end_a->next = NULL;
 		temp_end->next = ptr->stack_a;
 		ptr->stack_a = temp_end;
-		ft_putstr_fd("rra\n", 1);
+		if (c == 'a')
+		 ft_putstr_fd("rra\n", 1);
 		return (1);
 	}
 	return (0);
 }
 
-int	ft_rrb_move(t_data *ptr)
+int	ft_rrb_move(t_data *ptr, char c)
 {
 	t_stack	*temp;
 	t_stack	*temp_end;
@@ -48,7 +49,8 @@ int	ft_rrb_move(t_data *ptr)
 		ptr->stack_end_b->next = NULL;
 		temp_end->next = ptr->stack_b;
 		ptr->stack_b = temp_end;
-		ft_putstr_fd("rrb\n", 1);
+		if (c == 'b')
+			ft_putstr_fd("rrb\n", 1);
 		return (1);
 	}
 	return (0);

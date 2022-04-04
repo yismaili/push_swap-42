@@ -65,20 +65,20 @@ int ft_push_to_a(t_data *ptr)
 	{
 		ptr->mx = ft_get_max(ptr);
 		if (ptr->max == ptr->stack_b->next->content)
-			ft_sb_move(ptr);
+			ft_sb_move(ptr, 'b');
 		 else
 		 {
 			while (ptr->index_max  > 1)
 			{
 				if (ptr->mx == -1)
-					ft_rb_move(ptr) ;
+					ft_rb_move(ptr, 'b') ;
 				else
-					ft_rrb_move(ptr);
+					ft_rrb_move(ptr, 'b');
 				ptr->index_max--;
 			 }
 		}
-		ft_pa_move(ptr);
+		ft_pa_move(ptr, 'a');
 	}
-	ft_pa_move(ptr);
+	ft_pa_move(ptr, 'a');
 	return (0);
 }

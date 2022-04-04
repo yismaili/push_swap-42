@@ -82,10 +82,10 @@ int ft_comparet(t_data *ptr)
 		{
 			while (i)
 			{
-				ft_ra_move(ptr);
+				ft_ra_move(ptr, 'a');
 				i--;
 			}
-			ft_pb_move(ptr);
+			ft_pb_move(ptr, 'b');
 			node = ptr->stack_a;
 			if (ptr->stack_b->next)
 			{
@@ -97,7 +97,7 @@ int ft_comparet(t_data *ptr)
 						node = ptr->stack_a;
 					}
 					else
-						ft_rb_move(ptr);
+						ft_rb_move(ptr, 'b');
 				}
 			}
 		}
