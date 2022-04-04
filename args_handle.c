@@ -24,12 +24,13 @@ int check_dup( char **number, int len)
         while (j <= len)
         {
             if (ft_atoi(number[i]) == ft_atoi(number[j]))
-                return (1);
+                {
+                    write(1, "Error\n", 6);
+			        exit (1);
+                }
             j++;
         }
         i++;  
     }
     return (0);
 }
-
-int check_

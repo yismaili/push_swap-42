@@ -14,43 +14,40 @@
 
 void	ft_die(char *str)
 {
-	perror(str);
+	ft_putstr_fd(str, 1);
 	exit(1);
 }
 
 int main(int argc, char **argv)
 {
 	t_data	data;
+	
+	if ( argc == 1 || argc <= 2)
+		exit(1);
+	check_dup(argv,argc -1);
 
-	if (argc == 1)
-		return (0);
+	if (argv[1][1] == 32 || (argv[1][1] >= 9 && argv[1][1] <= 13))
+		ft_die("Error \n");
 	ft_create_stack(&data, argc, argv);
-	t_stack *ptr, *bptr;
-	//ft_smoll_sort(&data);
-	
-	ft_create_temp(&data);
-	ft_sort_temp(&data); 
-    while (data.stack_a->next != NULL)
-    {
-	ft_comparet(&data);
- 	ft_create_temp(&data);
- 	ft_sort_temp(&data);
-    }
-	
-	ft_push_to_a(&data);
-	ptr = data.stack_a;
-	bptr = data.stack_b;
-	// printf("\n------------- stack a ---------------\n");
-	// while(ptr)
-	// {
-	// 	printf("%d\n",ptr->content);
-	// 	ptr = ptr->next;
-	// }
-	// printf("\n--------- move to stack b -----------\n");
-	// while(bptr)
-	// {
-	// 	printf("%d\n",bptr->content);
-	// 	bptr = bptr->next;
-	// }
+	if (argc -1 < 10 )
+		ft_smoll_sort(&data);
+	else
+	{
+		ft_create_temp(&data);
+		ft_sort_temp(&data);
+		while (data.stack_a->next != NULL)
+		{
+			if (argc -1 < 300)
+				ft_comparet(&data);
+			if (argc -1 >= 300)
+			 	ft_comparet_big(&data);
+			ft_create_temp(&data);
+			ft_sort_temp(&data);
+		}
+		ft_free_stack_temp(&data);
+	    ft_push_to_a(&data);
+		ft_free_stack_a(&data);
+	}
+	//while(1);
 	return (0);
 }

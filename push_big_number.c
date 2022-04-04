@@ -44,6 +44,7 @@ int	get_scnd_big_index(t_data *ptr)
 		len--;
 	}
 	ptr->gits_index = ptr->temp->content;
+	ptr->temp = tmp;
 	return (0);
 }
 
@@ -54,8 +55,8 @@ int ft_comparet_big(t_data *ptr)
 	t_stack *node;
 
 	 i = 0;
-	get_frst_index(ptr);
-	get_scnd_index(ptr);
+	get_frst_big_index(ptr);
+	get_scnd_big_index(ptr);
 	node = ptr->stack_a;
  	len = ft_len_stack(ptr);
 	while (len)
@@ -91,6 +92,6 @@ int ft_comparet_big(t_data *ptr)
 			node = node->next;
 		len--;
 	}
-	free(ptr->temp);
+	ft_free_stack_temp(ptr);
 	return (0);
 }

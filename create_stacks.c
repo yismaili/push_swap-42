@@ -30,7 +30,7 @@ void	ft_create_stack(t_data *data, int argc, char **argv)
 		if (i + 1 < argc)
 		{
 			nude->next = (t_stack*)malloc(sizeof(t_stack));
-			if (!nude)
+			if (!nude->next)
 				ft_die("error stack\n");
 			nude = nude->next;
 		}
@@ -59,7 +59,7 @@ void	ft_create_temp(t_data *data)
 		if (data->stack_a->next != NULL)
 		{
 			nude->next = (t_stack*)malloc(sizeof(t_stack));
-			if (!nude)
+			if (!nude->next)
 				ft_die("error stack\n");
 			nude = nude->next;
 		}

@@ -82,7 +82,6 @@ void ft_rr_move(t_data *ptr)
 	{
 		return ;
 	}
-	//printf("%d\n", ft_len_stack(ptr));
 	ft_srb_move(ptr);
 	ft_sra_move(ptr);
 	write(1,"rr\n", 3);

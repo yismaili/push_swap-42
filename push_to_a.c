@@ -32,7 +32,7 @@ int		ft_get_max(t_data *ptr)
 		count++;
 	}
 	ptr->index_max = index_max;
-	if(index_max > (count / 2) )
+	if(index_max > (count / 2))
 	{
 		ptr->index_max = abs((count - index_max + 1));
 	} 

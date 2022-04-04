@@ -59,6 +59,7 @@ int	get_scnd_index(t_data *ptr)
 		len--;
 	}
 	ptr->gits_index = ptr->temp->content;
+	ptr->temp = tmp;
 	return (0);
 }
 
@@ -66,7 +67,7 @@ int ft_comparet(t_data *ptr)
 {
 	int		i;
 	int		len;
-	t_stack *node;
+	t_stack *node = NULL;
 
 	 i = 0;
 	get_frst_index(ptr);
@@ -88,7 +89,6 @@ int ft_comparet(t_data *ptr)
 			node = ptr->stack_a;
 			if (ptr->stack_b->next)
 			{
-
 				if (ptr->stack_b->content < ptr->gits_index)
 				{
 					if (node->content > ptr->gitf_index )
@@ -99,13 +99,12 @@ int ft_comparet(t_data *ptr)
 					else
 						ft_rb_move(ptr);
 				}
-			
 			}
 		}
 		else
 			node = node->next;
 		len--;
 	}
-	free(ptr->temp);
+	ft_free_stack_temp(ptr);
 	return (0);
 }

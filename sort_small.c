@@ -123,6 +123,10 @@ int ft_smoll_sort(t_data *ptr)
             ft_ra_move(ptr);
         else if (stk_a < stk_nxt_a && stk_a > stk_end_a && stk_nxt_a > stk_end_a)
             ft_rra_move(ptr);
+		else if (stk_a > stk_nxt_a)
+			ft_sa_move(ptr);
+		// if (ft_len_stack(ptr) == 1)
+		// 	return (0);
     }
     return (0);
 }
