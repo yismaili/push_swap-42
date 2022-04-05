@@ -19,6 +19,7 @@
 #include <stdlib.h>
 # define MAX_INT 2147483647
 # define MIN_INT -2147483648
+#include "get_next_line/get_next_line.h"
 
 typedef struct	s_stack
 {
@@ -33,6 +34,7 @@ typedef struct	s_data
 	t_stack	*stack_end_a;
 	t_stack	*stack_end_b;
 	t_stack	*temp;
+	char	**splited;
 	int		min;
 	int		max;
 	int		index_min;
@@ -79,4 +81,13 @@ void		ft_putstr_fd(char *s, int fd);
 size_t		ft_strlen(const char *s);
 void 		ft_sort_temp(t_data *ptr);
 long int	ft_atoi(const char *str);
+void 		check_max_min(char **number , int len);
+void		ft_ss_move(t_data *ptr);
+void		ft_rrr_move(t_data *ptr);
+char		*ft_substr(char const *s, unsigned int start, size_t len);
+int			ft_lenwrd(const char *s, char c);
+ void		*ft_free(char **dest, int j);
+ char		**ft_checkalocc(char **dest, const char *s, char c);
+ char		**ft_split(char const *s, char c);
+
 #endif

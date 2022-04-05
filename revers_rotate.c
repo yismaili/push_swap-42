@@ -55,4 +55,13 @@ int	ft_rrb_move(t_data *ptr, char c)
 	}
 	return (0);
 }
-
+void ft_rrr_move(t_data *ptr)
+{
+	if (ft_len_stack(ptr) < 2)
+	{
+		return;
+	}
+	ft_rrb_move(ptr, 's');
+	ft_rra_move(ptr, 's');
+	write(1,"rrr\n", 3);
+}

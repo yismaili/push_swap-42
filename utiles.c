@@ -134,3 +134,8 @@ void	ft_putstr_fd(char *s, int fd)
 		return ;
 	write(fd, s, ft_strlen(s));
 }
+void	ft_die(char *str)
+{
+	ft_putstr_fd(str, 1);
+	exit(1);
+}

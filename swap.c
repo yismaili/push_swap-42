@@ -43,3 +43,14 @@ int ft_sb_move(t_data *ptr, char c)
 	}
 	return (0);
 }
+
+void ft_ss_move(t_data *ptr)
+{
+	if ((ptr->stack_a && ptr->stack_a->next) || (ptr->stack_b && ptr->stack_b->next))
+	{
+		return;
+	}
+	ft_sb_move(ptr, 's');
+	ft_sa_move(ptr, 's');
+	write(1,"ss\n", 3);
+}

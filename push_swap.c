@@ -12,12 +12,6 @@
 
 #include "push_swap.h"
 
-void	ft_die(char *str)
-{
-	ft_putstr_fd(str, 1);
-	exit(1);
-}
-
 int main(int argc, char **argv)
 {
 	t_data	data;
@@ -25,7 +19,7 @@ int main(int argc, char **argv)
 	if ( argc == 1 || argc <= 2)
 		exit(1);
 	check_dup(argv,argc -1);
-
+	//check_max_min(argv, argc -1);
 	if (argv[1][1] == 32 || (argv[1][1] >= 9 && argv[1][1] <= 13))
 		ft_die("Error \n");
 	ft_create_stack(&data, argc, argv);

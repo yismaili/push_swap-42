@@ -12,9 +12,27 @@ SRCS=push_swap.c\
 	push_to_a.c\
 	push_big_number.c\
 	args_handle.c
+BONUSRC =  push.c\
+		swap.c\
+		revers_rotate.c\
+		rotate.c\
+		sort_small.c\
+		utiles.c\
+		create_stacks.c\
+		push_to_b.c\
+		push_to_a.c\
+		push_big_number.c\
+		args_handle.c\
+		checker.c\
+		get_next_line/get_next_line.c\
+		get_next_line/get_next_line_utils.c
+
+CHECKER = checker
 
 OBJS=$(SRCS:.c=.o)
+BONUS_OBJ = $(BONUSRC:.c=.o)
 INCL= push_swap.h
+INCLB= checker.h
 
 BGreen=\033[1;32m
 BYellow=\033[1;33m
@@ -49,6 +67,14 @@ fclean:clean
 	@echo "$(BGreen) Fclean"
 	rm -rf *.a
 	rm -rf push_swap
+re : fclean all
+
+bonus : $(CHECKER)
+
+$(CHECKER) : $(BONUS_OBJ)
+	@cd  make
+	@cd make bonus
+	$(CC) $(CFLAGS) $(BONUS_OBJ) $(CHECKER)
 
 .PHONY: all gnl utils bonus clean fclean re
 
