@@ -6,7 +6,7 @@
 /*   By: yismaili <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 16:13:42 by yismaili          #+#    #+#             */
-/*   Updated: 2022/03/10 16:13:46 by yismaili         ###   ########.fr       */
+/*   Updated: 2022/04/05 17:24:30 by yismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,14 @@ int	ft_rb_move(t_data *ptr, char c)
 	}
 	return (0);
 }
-void ft_rr_move(t_data *ptr)
+
+void	ft_rr_move(t_data *ptr)
 {
 	if (ft_len_stack(ptr) < 2)
 	{
-		return;
+		return ;
 	}
 	ft_rb_move(ptr, 's');
 	ft_ra_move(ptr, 's');
-	write(1,"rr\n", 3);
+	write(1, "rr\n", 3);
 }

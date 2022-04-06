@@ -6,7 +6,7 @@
 /*   By: yismaili <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 11:46:30 by yismaili          #+#    #+#             */
-/*   Updated: 2021/11/26 19:15:17 by yismaili         ###   ########.fr       */
+/*   Updated: 2022/04/05 21:15:43 by yismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	ft_lenwrd(const char *s, char c)
 	return (len);
 }
 
- void	*ft_free(char **dest, int j)
+void	*ft_free(char **dest, int j)
 {
 	int	i;
 

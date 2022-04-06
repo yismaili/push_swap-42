@@ -6,15 +6,15 @@
 /*   By: yismaili <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 16:29:31 by yismaili          #+#    #+#             */
-/*   Updated: 2022/04/04 16:29:39 by yismaili         ###   ########.fr       */
+/*   Updated: 2022/04/05 20:49:25 by yismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-int chech_instruction(char *instr, t_data *ptr)
+int	chech_instruction(char *instr, t_data *ptr)
 {
-    if (!ft_strncmp(instr, "sa\n", 3))
+	if (!ft_strncmp(instr, "sa\n", 3))
 		ft_sa_move(ptr, 's');
 	else if (!ft_strncmp(instr, "sb\n", 3))
 		ft_sb_move(ptr, 's');
@@ -38,10 +38,10 @@ int chech_instruction(char *instr, t_data *ptr)
 		ft_rrr_move(ptr);
 	else
 		write(2, "Error\n", 6);
-    return (0);
+	return (0);
 }
 
-int ft_sorted(t_data *ptr, int size)
+int	ft_sorted(t_data *ptr, int size)
 {
 	t_stack	*node;
 	int		i;
@@ -68,13 +68,15 @@ void	ft_ok_ko(t_data *ptr, int size)
 	else
 		write(1, "KO\n", 3);
 }
-int main(int argc, char **argv)
+
+int	main(int argc, char **argv)
 {
 	t_data	data;
 	char	*buf;
-	if ( argc == 1 || argc <= 2)
+
+	if (argc == 1 || argc <= 2)
 		exit(1);
-	check_dup(argv,argc -1);
+	check_dup(argv, argc -1);
 	ft_create_stack(&data, argc, argv);
 	buf = get_next_line(0);
 	while (buf != NULL)
@@ -83,8 +85,7 @@ int main(int argc, char **argv)
 		free(buf);
 		buf = get_next_line(0);
 	}
-		ft_ok_ko(&data, argc -1);
-		ft_free_stack_a(&data);
-	
+	ft_ok_ko(&data, argc -1);
+	ft_free_stack_a(&data);
 	return (0);
 }

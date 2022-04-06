@@ -6,17 +6,17 @@
 /*   By: yismaili <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 20:08:54 by yismaili          #+#    #+#             */
-/*   Updated: 2022/03/19 20:09:01 by yismaili         ###   ########.fr       */
+/*   Updated: 2022/04/06 00:22:16 by yismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ft_sort_temp(t_data *ptr)
+void	ft_sort_temp(t_data *ptr)
 {
-	int  temp;
-	t_stack *unde;
-	int len;
+	int		temp;
+	t_stack	*unde;
+	int		len;
 
 	unde = ptr->temp;
 	len = ft_len_stack(ptr);
@@ -38,10 +38,10 @@ void ft_sort_temp(t_data *ptr)
 	ptr->temp = unde;
 }
 
-int len_temp(t_data *ptr)
+int	len_temp(t_data *ptr)
 {
 	int		len;
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	len = 0;
 	tmp = ptr->temp;
@@ -55,23 +55,24 @@ int len_temp(t_data *ptr)
 	return (len);
 }
 
-void ft_free_stack_a(t_data *ptr)
+void	ft_free_stack_a(t_data *ptr)
 {
-	while(ptr->stack_a)
+	t_stack	*node;
+
+	while (ptr->stack_a)
 	{
-		t_stack *node;
-		
 		node = ptr->stack_a->next;
 		free(ptr->stack_a);
 		ptr->stack_a = node;
 	}
 }
-void ft_free_stack_temp(t_data *ptr)
+
+void	ft_free_stack_temp(t_data *ptr)
 {
-	while(ptr->temp)
+	t_stack	*node;
+
+	while (ptr->temp)
 	{
-		t_stack *node;
-		
 		node = ptr->temp->next;
 		free(ptr->temp);
 		ptr->temp = node;
@@ -94,48 +95,9 @@ long int	ft_atoi(const char *str)
 		if (str[i] == '-')
 			sgn *= -1;
 		if (str[i + 1] == '\0')
-		{
-				write(1, "Error\n", 6);
-			     exit (1);
-		}
+			ft_die("Error");
 		i++;
 	}
-	while (str[i])
-	{
-		if  (str[i] >= '0' && str[i] <= '9')
-		{
-			res = (res * 10) + (str[i] - '0');
-			i++;
-		}
-		else
-		{
-			write(1, "Error\n", 6);
-			exit (1);
-		}
-	}
+	res = ft_atoi_tow(str);
 	return (res * sgn);
-}
-
-size_t	ft_strlen(const char *s)
-{
-	unsigned int	i;
-
-	i = 0;
-	while (s[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
-
-void	ft_putstr_fd(char *s, int fd)
-{
-	if (!s || *s == '\0' || fd < 0)
-		return ;
-	write(fd, s, ft_strlen(s));
-}
-void	ft_die(char *str)
-{
-	ft_putstr_fd(str, 1);
-	exit(1);
 }

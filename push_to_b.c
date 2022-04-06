@@ -6,13 +6,13 @@
 /*   By: yismaili <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 21:49:52 by yismaili          #+#    #+#             */
-/*   Updated: 2022/03/16 21:50:51 by yismaili         ###   ########.fr       */
+/*   Updated: 2022/04/05 22:25:18 by yismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int ft_len_stack(t_data *ptr)
+int	ft_len_stack(t_data *ptr)
 {
 	int		len;
 	t_stack	*node;
@@ -27,7 +27,7 @@ int ft_len_stack(t_data *ptr)
 	return (len);
 }
 
-int get_frst_index(t_data *ptr)
+int	get_frst_index(t_data *ptr)
 {
 	int		len;
 	t_stack	*tmp;
@@ -50,7 +50,7 @@ int	get_scnd_index(t_data *ptr)
 	int		len;
 	t_stack	*tmp;
 
-	len = len_temp(ptr) /3;
+	len = len_temp(ptr) / 3;
 	len /= 2;
 	tmp = ptr->temp;
 	while (len)
@@ -63,17 +63,17 @@ int	get_scnd_index(t_data *ptr)
 	return (0);
 }
 
-int ft_comparet(t_data *ptr)
+int	ft_comparet(t_data *ptr)
 {
 	int		i;
 	int		len;
-	t_stack *node = NULL;
+	t_stack	*node;
 
-	 i = 0;
+	i = 0;
 	get_frst_index(ptr);
 	get_scnd_index(ptr);
 	node = ptr->stack_a;
- 	len = ft_len_stack(ptr);
+	len = ft_len_stack(ptr);
 	while (len)
 	{
 		if (node->content > ptr->gitf_index)
@@ -91,7 +91,7 @@ int ft_comparet(t_data *ptr)
 			{
 				if (ptr->stack_b->content < ptr->gits_index)
 				{
-					if (node->content > ptr->gitf_index )
+					if (node->content > ptr->gitf_index)
 					{
 						ft_rr_move(ptr);
 						node = ptr->stack_a;

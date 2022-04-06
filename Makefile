@@ -10,6 +10,7 @@ SRCS=push_swap.c\
 	create_stacks.c\
 	push_to_b.c\
 	push_to_a.c\
+	free.c\
 	push_big_number.c\
 	args_handle.c
 BONUSRC =  push.c\
@@ -24,6 +25,7 @@ BONUSRC =  push.c\
 		push_big_number.c\
 		args_handle.c\
 		checker.c\
+		free.c\
 		get_next_line/get_next_line.c\
 		get_next_line/get_next_line_utils.c
 
