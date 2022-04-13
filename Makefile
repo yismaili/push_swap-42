@@ -12,6 +12,7 @@ SRCS=push_swap.c\
 	push_to_a.c\
 	free.c\
 	push_big_number.c\
+	utils_tow.c\
 	args_handle.c
 BONUSRC =  push.c\
 		swap.c\
@@ -25,6 +26,7 @@ BONUSRC =  push.c\
 		push_big_number.c\
 		args_handle.c\
 		checker.c\
+		utils_tow.c\
 		free.c\
 		get_next_line/get_next_line.c\
 		get_next_line/get_next_line_utils.c
@@ -74,7 +76,7 @@ re : fclean all
 bonus : $(CHECKER)
 
 $(CHECKER) : $(BONUS_OBJ)
-	@cd  make
+	@cd make
 	@cd make bonus
 	$(CC) $(CFLAGS) $(BONUS_OBJ) $(CHECKER)
 

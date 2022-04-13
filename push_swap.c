@@ -17,7 +17,7 @@ void	check_args(int argc, char **argv)
 	if (argc == 1 || argc <= 2)
 		exit(1);
 	check_dup(argv, argc -1);
-	//check_max_min(argv, argc -1);
+	arg_is_int(argv, argc -1);
 	if (argv[1][1] == 32 || (argv[1][1] >= 9 && argv[1][1] <= 13))
 		ft_die("Error \n");
 }

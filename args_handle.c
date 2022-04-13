@@ -35,20 +35,33 @@ int	check_dup( char **number, int len)
 	return (0);
 }
 
-void	check_max_min(char **number, int len)
+int	check_max_min(char *number, char *max, char *min)
 {
-	int	i;
+	char	*num;
 
-	i = 0;
-	while (i <= len)
+	if (ft_strlen(number) >= 10)
 	{
-		if (ft_atoi(number[i]) > MAX_INT || ft_atoi(number[i]) < MIN_INT)
+		if (number[0] == '-' && ft_strlen(number) >= 11)
 		{
-			write(1, "Error\n", 6);
-			exit (1);
+			num = ft_itoa(ft_atoi(number));
+			if (ft_strncmp(num, number, ft_strlen(min)))
+				return (1);
 		}
-		i++;
+		if (number[0] == '+' && ft_strlen(number) >= 11)
+		{
+			num = ft_itoa(ft_atoi(number));
+			if (ft_strncmp(num, &number[1], 11))
+				return (1);
+		}
+		else if (ft_strlen(number) >= 10)
+		{
+			num = ft_itoa(ft_atoi(number));
+			if (ft_strncmp(num, number, ft_strlen(max)))
+				return (1);
+		}
+		free(num);
 	}
+	return (0);
 }
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
@@ -68,4 +81,19 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		return (0);
 	else
 		return (-s2[i]);
+}
+
+void	arg_is_int(char **argv, int len)
+{
+	int	i;
+
+	i = 1;
+	if (len <= 0)
+		ft_die("Error");
+	while (i <= len)
+	{
+		if (check_max_min(argv[i], "2147483647", "-2147483648"))
+			ft_die("Error");
+		i++;
+	}
 }
