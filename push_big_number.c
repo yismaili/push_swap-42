@@ -59,7 +59,14 @@ int	ft_comparet_big(t_data *ptr)
 	get_scnd_big_index(ptr);
 	node = ptr->stack_a;
 	len = ft_len_stack(ptr);
-	while (len)
+	ft_comparet_utils(ptr, node, i, len);
+	ft_free_stack_temp(ptr);
+	return (0);
+}
+
+void	ft_comparet_utils(t_data *ptr, t_stack *node, int i, int len)
+{
+	while (len--)
 	{
 		if (node->content > ptr->gitf_index)
 			i++;
@@ -72,24 +79,16 @@ int	ft_comparet_big(t_data *ptr)
 			}
 			ft_pb_move(ptr, 'b');
 			node = ptr->stack_a;
-			if (ptr->stack_b->next)
+			if (ptr->stack_b->next && ptr->stack_b->content < ptr->gits_index)
 			{
-				if (ptr->stack_b->content < ptr->gits_index)
-				{
-					if (node->content > ptr->gitf_index)
-					{
-						ft_rr_move(ptr);
-						node = ptr->stack_a;
-					}
-					else
-						ft_rb_move(ptr, 'b');
-				}	
-			}
+				if (node->content > ptr->gitf_index)
+					ft_rr_move(ptr);
+				else
+					ft_rb_move(ptr, 'b');
+			}	
+			node = ptr->stack_a;
 		}
 		else
 			node = node->next;
-		len--;
 	}
-	ft_free_stack_temp(ptr);
-	return (0);
 }

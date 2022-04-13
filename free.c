@@ -37,21 +37,17 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-long int	ft_atoi_tow(const char *str)
+int	ft_len_stack(t_data *ptr)
 {
-	long int	res;
-	int			i;
+	int		len;
+	t_stack	*node;
 
-	i = 0;
-	while (str[i])
+	len = 0;
+	node = ptr->stack_a;
+	while (node != NULL)
 	{
-		if (str[i] >= '0' && str[i] <= '9')
-		{
-			res = (res * 10) + (str[i] - '0');
-			i++;
-		}
-		else
-			ft_die("Error");
+		node = node->next;
+		len++;
 	}
-	return (res);
+	return (len);
 }

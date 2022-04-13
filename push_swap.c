@@ -12,16 +12,21 @@
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	check_args(int argc, char **argv)
 {
-	t_data	data;
-
 	if (argc == 1 || argc <= 2)
 		exit(1);
 	check_dup(argv, argc -1);
 	//check_max_min(argv, argc -1);
 	if (argv[1][1] == 32 || (argv[1][1] >= 9 && argv[1][1] <= 13))
 		ft_die("Error \n");
+}
+
+int	main(int argc, char **argv)
+{
+	t_data	data;
+
+	check_args(argc, argv);
 	ft_create_stack(&data, argc, argv);
 	if (argc -1 < 10)
 		ft_smoll_sort(&data);
@@ -38,11 +43,9 @@ int	main(int argc, char **argv)
 			ft_create_temp(&data);
 			ft_sort_temp(&data);
 		}
-			//	exit(1);
 		ft_free_stack_temp(&data);
 		ft_push_to_a(&data);
 		ft_free_stack_a(&data);
 	}
-	//while (1);
 	return (0);
 }

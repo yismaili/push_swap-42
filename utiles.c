@@ -98,6 +98,12 @@ long int	ft_atoi(const char *str)
 			ft_die("Error");
 		i++;
 	}
-	res = ft_atoi_tow(str);
+	while (str[i])
+	{
+		if (str[i] >= '0' && str[i] <= '9')
+			res = (res * 10) + (str[i++] - '0');
+		else
+			ft_die("Error");
+	}
 	return (res * sgn);
 }

@@ -12,21 +12,6 @@
 
 #include "push_swap.h"
 
-int	ft_len_stack(t_data *ptr)
-{
-	int		len;
-	t_stack	*node;
-
-	len = 0;
-	node = ptr->stack_a;
-	while (node != NULL)
-	{
-		node = node->next;
-		len++;
-	}
-	return (len);
-}
-
 int	get_frst_index(t_data *ptr)
 {
 	int		len;
@@ -63,18 +48,9 @@ int	get_scnd_index(t_data *ptr)
 	return (0);
 }
 
-int	ft_comparet(t_data *ptr)
+void	ft_comparet_util(t_data *ptr, t_stack *node, int i, int len)
 {
-	int		i;
-	int		len;
-	t_stack	*node;
-
-	i = 0;
-	get_frst_index(ptr);
-	get_scnd_index(ptr);
-	node = ptr->stack_a;
-	len = ft_len_stack(ptr);
-	while (len)
+	while (len--)
 	{
 		if (node->content > ptr->gitf_index)
 			i++;
@@ -87,24 +63,32 @@ int	ft_comparet(t_data *ptr)
 			}
 			ft_pb_move(ptr, 'b');
 			node = ptr->stack_a;
-			if (ptr->stack_b->next)
+			if (ptr->stack_b->next && ptr->stack_b->content < ptr->gits_index)
 			{
-				if (ptr->stack_b->content < ptr->gits_index)
-				{
-					if (node->content > ptr->gitf_index)
-					{
-						ft_rr_move(ptr);
-						node = ptr->stack_a;
-					}
-					else
-						ft_rb_move(ptr, 'b');
-				}
+				if (node->content > ptr->gitf_index)
+					ft_rr_move(ptr);
+				else
+					ft_rb_move(ptr, 'b');
 			}
+			node = ptr->stack_a;
 		}
 		else
 			node = node->next;
-		len--;
 	}
+}
+
+int	ft_comparet(t_data *ptr)
+{
+	int		i;
+	int		len;
+	t_stack	*node;
+
+	i = 0;
+	get_frst_index(ptr);
+	get_scnd_index(ptr);
+	node = ptr->stack_a;
+	len = ft_len_stack(ptr);
+	ft_comparet_util(ptr, node, i, len);
 	ft_free_stack_temp(ptr);
 	return (0);
 }
