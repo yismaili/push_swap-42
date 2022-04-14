@@ -19,7 +19,7 @@
 # include <stdlib.h>
 # define MAX_INT 2147483647
 # define MIN_INT -2147483648
-# include "get_next_line/get_next_line.h"
+# define BUFFER_SIZE	1000
 
 typedef struct s_stack
 {
@@ -92,4 +92,11 @@ int			ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t		ft_strlcpy(char *dest, const char *src, size_t size);
 int			check_max_min(char *number, char *max, char *min);
 void		arg_is_int(char **argv, int len);
+char		*get_next_line(int fd);
+char		*ft_read(int fd, char *left_str);
+size_t		ft_strlenn(char *s);
+char		*ft_strchr(char *s, int c);
+char		*ft_strjoin(char *left_str, char *buff);
+char		*ft_next_str(char *left_str);
+char		*ft_get_line(char *left_str);
 #endif

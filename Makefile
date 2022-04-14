@@ -28,8 +28,8 @@ BONUSRC =  push.c\
 		checker.c\
 		utils_tow.c\
 		free.c\
-		get_next_line/get_next_line.c\
-		get_next_line/get_next_line_utils.c
+		get_next_line.c\
+		get_next_line_utils.c
 
 CHECKER = checker
 
@@ -71,14 +71,13 @@ fclean:clean
 	@echo "$(BGreen) Fclean"
 	rm -rf *.a
 	rm -rf push_swap
+	rm -rf checker
 re : fclean all
 
 bonus : $(CHECKER)
 
-$(CHECKER) : $(BONUS_OBJ)
-	@cd make
-	@cd make bonus
-	$(CC) $(CFLAGS) $(BONUS_OBJ) $(CHECKER)
+$(CHECKER) : $(BONUS_OBJ) $(INCLB)
+	$(CC) $(CFLAGS) $(BONUS_OBJ) -o $(CHECKER)
 
 .PHONY: all gnl utils bonus clean fclean re
 
