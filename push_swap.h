@@ -99,4 +99,5 @@ char		*ft_strchr(char *s, int c);
 char		*ft_strjoin(char *left_str, char *buff);
 char		*ft_next_str(char *left_str);
 char		*ft_get_line(char *left_str);
+
 #endif

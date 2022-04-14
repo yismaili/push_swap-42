@@ -64,7 +64,7 @@ void	ft_smoll_two(t_data *ptr)
 	while (check_sorted(ptr->stack_a, 0) != 0 || ptr->stack_b == NULL)
 	{
 		ptr->min_getf = ft_get_min(ptr);
-		while (ptr->index_min -1 > 0)
+		while (ptr->index_min > 1)
 		{
 			if (ptr->min_getf == -1)
 				ft_ra_move(ptr, 'a');

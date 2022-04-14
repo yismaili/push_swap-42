@@ -12,6 +12,16 @@
 
 #include "checker.h"
 
+void	check_args(int argc, char **argv)
+{
+	if (argc == 1 || argc <= 2)
+		exit(1);
+	check_dup(argv, argc -1);
+	arg_is_int(argv, argc -1);
+	if (argv[1][1] == 32 || (argv[1][1] >= 9 && argv[1][1] <= 13))
+		ft_die("Error \n");
+}
+
 int	chech_instruction(char *instr, t_data *ptr)
 {
 	if (!ft_strncmp(instr, "sa\n", 3))
@@ -74,9 +84,7 @@ int	main(int argc, char **argv)
 	t_data	data;
 	char	*buf;
 
-	if (argc == 1 || argc <= 2)
-		exit(1);
-	check_dup(argv, argc -1);
+	check_args(argc, argv);
 	ft_create_stack(&data, argc, argv);
 	buf = get_next_line(0);
 	while (buf != NULL)
