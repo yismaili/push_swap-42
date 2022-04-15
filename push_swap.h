@@ -23,7 +23,7 @@
 
 typedef struct s_stack
 {
-	int				content;
+	long int		content;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -46,7 +46,7 @@ typedef struct s_data
 	int		len_temp;
 }	t_data;
 
-void		ft_create_stack(t_data *e, int argc, char **argv);
+void		ft_create_stack(t_data *data, char **splt);
 void		ft_die(char *str);
 int			ft_sa_move(t_data *ptr, char c);
 int			ft_sb_move(t_data *ptr, char c);
@@ -76,7 +76,7 @@ int			get_scnd_big_index(t_data *ptr);
 int			ft_comparet_big(t_data *ptr);
 void		ft_free_stack_a(t_data *ptr);
 void		ft_free_stack_temp(t_data *ptr);
-int			check_dup( char **number, int len);
+int			check_dup( char **number);
 void		ft_putstr_fd(char *s, int fd);
 size_t		ft_strlen(const char *s);
 void		ft_sort_temp(t_data *ptr);
@@ -84,14 +84,14 @@ long int	ft_atoi(const char *str);
 void		ft_ss_move(t_data *ptr);
 void		ft_rrr_move(t_data *ptr);
 void		ft_scnd_smoll_sort(t_data *ptr);
-void		check_args(int argc, char **argv);
+void		check_args(char **splited);
 void		ft_comparet_utils(t_data *ptr, t_stack *node, int i, int len);
 void		ft_comparet_util(t_data *ptr, t_stack *node, int i, int len);
 char		*ft_itoa(int n);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t		ft_strlcpy(char *dest, const char *src, size_t size);
 int			check_max_min(char *number, char *max, char *min);
-void		arg_is_int(char **argv, int len);
+void		arg_is_int(char **argv);
 char		*get_next_line(int fd);
 char		*ft_read(int fd, char *left_str);
 size_t		ft_strlenn(char *s);
@@ -99,5 +99,10 @@ char		*ft_strchr(char *s, int c);
 char		*ft_strjoin(char *left_str, char *buff);
 char		*ft_next_str(char *left_str);
 char		*ft_get_line(char *left_str);
-
+char		*ft_substr(char const *s, unsigned int start, size_t len);
+int			ft_lenwrd(const char *s, char c);
+void		*ft_free(char **dest, int j);
+char		**ft_checkalocc(char **dest, const char *s, char c);
+char		**ft_split(char const *s, char c);
+char		**ft_splited(char **argv);
 #endif

@@ -12,22 +12,90 @@
 
 #include "push_swap.h"
 
-void	ft_create_stack(t_data *data, int argc, char **argv)
+int	emty_str(char *str)
+{
+	int	i;
+	int	k;
+
+	i = 0;
+	k = 0;
+	while (str[i])
+	{
+		if (str[i] == ' ')
+			k++;
+		i++;
+	}
+	if (k == i)
+		return (write(2, "Error\n", 6), 0);
+	else
+		return (1);
+}
+
+char	*ft_strjoinn(char *s1, char *s2)
+{
+	int		i;
+	char	*p;
+	int		len;
+
+	i = 0;
+	len = ft_strlen(s1) + ft_strlen(s2);
+	if (!s1 || !s2)
+		return (NULL);
+	p = (char *)malloc(sizeof(char) * (len + 1));
+	if (p == NULL)
+		return (NULL);
+	while (*s1)
+		p[i++] = *s1++;
+	while (*s2)
+		p[i++] = *s2++;
+	p[i] = '\0';
+	return (p);
+}
+
+char	**ft_splited(char **argv)
+{
+	char	*num;
+	char	*str;
+	char	**split;
+	int		i;
+
+	i = 0;
+	str = malloc(1);
+	str[0] = '\0';
+	while (argv[i])
+	{
+		if (emty_str(argv[i]) == 0)
+		{
+			free(str);
+			exit (0);
+		}
+		num = ft_strjoinn(str, argv[i]);
+		free(str);
+		str = ft_strjoinn(num, " ");
+		free(num);
+		i++;
+	}
+	split = ft_split(str, ' ');
+	free(str);
+	return (split);
+}
+
+void	ft_create_stack(t_data *data, char **splt)
 {
 	int		i;
 	t_stack	*nude;
 
-	i = 1;
+	i = 0;
 	data->stack_b = NULL;
 	nude = (t_stack *)malloc(sizeof(t_stack));
 	if (!nude)
 		ft_die("error stack\n");
 	data->stack_a = nude;
-	while (i < argc)
+	while (splt[i])
 	{
-		nude->content = ft_atoi(argv[i]);
+		nude->content = ft_atoi(splt[i]);
 		nude->next = NULL;
-		if (i + 1 < argc)
+		if (splt[i + 1])
 		{
 			nude->next = (t_stack *)malloc(sizeof(t_stack));
 			if (!nude->next)

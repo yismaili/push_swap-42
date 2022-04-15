@@ -12,16 +12,16 @@
 
 #include "push_swap.h"
 
-int	check_dup( char **number, int len)
+int	check_dup( char **number)
 {
 	int	j;
 	int	i;
 
 	i = 1;
-	while (i < len)
+	while (number[i])
 	{
 		j = i + 1;
-		while (j <= len)
+		while (number[j])
 		{
 			if (ft_atoi(number[i]) == ft_atoi(number[j]))
 			{
@@ -83,16 +83,16 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		return (-s2[i]);
 }
 
-void	arg_is_int(char **argv, int len)
+void	arg_is_int(char **splited)
 {
 	int	i;
 
-	i = 1;
-	if (len <= 0)
-		ft_die("Error");
-	while (i <= len)
+	i = 0;
+	if (splited[0] == '\0')
+		exit(1);
+	while (splited[i])
 	{
-		if (check_max_min(argv[i], "2147483647", "-2147483648"))
+		if (check_max_min(splited[i], "2147483647", "-2147483648"))
 			ft_die("Error");
 		i++;
 	}

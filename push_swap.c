@@ -12,40 +12,51 @@
 
 #include "push_swap.h"
 
-void	check_args(int argc, char **argv)
+void	check_args(char **splited)
 {
-	if (argc == 1 || argc <= 2)
-		exit(1);
-	check_dup(argv, argc -1);
-	arg_is_int(argv, argc -1);
-	if (argv[1][1] == 32 || (argv[1][1] >= 9 && argv[1][1] <= 13))
-		ft_die("Error \n");
+	check_dup(splited);
+	arg_is_int(splited);
+}
+
+void	ft_sort(int len, t_data *data)
+{
+	if (len < 10)
+		ft_smoll_sort(data);
+	else
+	{
+		ft_create_temp(data);
+		ft_sort_temp(data);
+		while (data->stack_a->next != NULL)
+		{
+			if (len < 300)
+				ft_comparet(data);
+			if (len >= 300)
+				ft_comparet_big(data);
+			ft_create_temp(data);
+			ft_sort_temp(data);
+		}
+		ft_free_stack_temp(data);
+		ft_push_to_a(data);
+	}
 }
 
 int	main(int argc, char **argv)
 {
 	t_data	data;
+	int		len;
+	char	**splt;
 
-	check_args(argc, argv);
-	ft_create_stack(&data, argc, argv);
-	if (argc -1 < 10)
-		ft_smoll_sort(&data);
-	else
-	{
-		ft_create_temp(&data);
-		ft_sort_temp(&data);
-		while (data.stack_a->next != NULL)
-		{
-			if (argc -1 < 300)
-				ft_comparet(&data);
-			if (argc -1 >= 300)
-				ft_comparet_big(&data);
-			ft_create_temp(&data);
-			ft_sort_temp(&data);
-		}
-		ft_free_stack_temp(&data);
-		ft_push_to_a(&data);
-		ft_free_stack_a(&data);
-	}
+	if (argc <= 1)
+		exit (1);
+	splt = ft_splited(argv +1);
+	check_args(splt);
+	ft_create_stack(&data, splt);
+	len = ft_len_stack(&data);
+	ft_sort(len, &data);
+	ft_free_stack_a(&data);
+	len = 0;
+	while (splt[len])
+		free(splt[len++]);
+	free(splt);
 	return (0);
 }

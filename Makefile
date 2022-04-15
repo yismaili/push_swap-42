@@ -13,6 +13,7 @@ SRCS=push_swap.c\
 	free.c\
 	push_big_number.c\
 	utils_tow.c\
+	split.c\
 	args_handle.c
 BONUSRC =  push.c\
 		swap.c\
@@ -29,6 +30,7 @@ BONUSRC =  push.c\
 		utils_tow.c\
 		free.c\
 		get_next_line.c\
+		split.c\
 		get_next_line_utils.c
 
 CHECKER = checker
