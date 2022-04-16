@@ -12,14 +12,10 @@
 
 #include "checker.h"
 
-void	check_args(int argc, char **argv)
+void	check_args(char **splited)
 {
-	if (argc == 1 || argc <= 2)
-		exit(1);
-	check_dup(argv, argc -1);
-	arg_is_int(argv, argc -1);
-	if (argv[1][1] == 32 || (argv[1][1] >= 9 && argv[1][1] <= 13))
-		ft_die("Error \n");
+	check_dup(splited);
+	arg_is_int(splited);
 }
 
 int	chech_instruction(char *instr, t_data *ptr)
@@ -83,9 +79,15 @@ int	main(int argc, char **argv)
 {
 	t_data	data;
 	char	*buf;
+	char	**splt;
+	int		len;
 
-	check_args(argc, argv);
-	ft_create_stack(&data, argc, argv);
+	if (argc <= 1)
+		exit (1);
+	splt = ft_splited(argv +1);
+	check_args(splt);
+	ft_create_stack(&data, splt);
+	len = ft_len_stack(&data);
 	buf = get_next_line(0);
 	while (buf != NULL)
 	{
@@ -93,7 +95,11 @@ int	main(int argc, char **argv)
 		free(buf);
 		buf = get_next_line(0);
 	}
-	ft_ok_ko(&data, argc -1);
+	ft_ok_ko(&data, len);
 	ft_free_stack_a(&data);
+	len = 0;
+	while (splt[len])
+		free(splt[len++]);
+	free(splt);
 	return (0);
 }
