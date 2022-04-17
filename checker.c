@@ -88,6 +88,8 @@ int	main(int argc, char **argv)
 	check_args(splt);
 	ft_create_stack(&data, splt);
 	len = ft_len_stack(&data);
+	if (len <= 1)
+		exit(1);
 	buf = get_next_line(0);
 	while (buf != NULL)
 	{
