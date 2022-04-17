@@ -20,7 +20,9 @@ void	check_args(char **splited)
 
 void	ft_sort(int len, t_data *data)
 {
-	if (len < 10)
+	if (len <= 1)
+		exit(1);
+	else if (len < 10)
 		ft_smoll_sort(data);
 	else
 	{
